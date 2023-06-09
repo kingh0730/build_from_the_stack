@@ -15,7 +15,8 @@ class TheStackDedup:
     ):
         self._ds = load_dataset(
             "bigcode/the-stack-dedup",
-            data_dir="data/python",
+            data_dir="data/python",  # Only use Python
+            split="train",  # This dataset has no split
             cache_dir=CACHE_DIR,
             streaming=streaming,
         )
