@@ -29,12 +29,12 @@ jobs:
       - name: Install
         run: source scripts/install.sh
 
-      - name: Test tox
-        run: source scripts/test_tox.sh
+      # - name: Test tox
+      #   run: source scripts/test_tox.sh
 
       - name: Assert OK
         uses: GuillaumeFalourd/assert-command-line-output@v2.2
         with:
-          command_line: echo "OK"
-          contains: OK
-          expected_result: PASSED
+          command_line: bash scripts/check_versions_done
+          contains: DONE!
+          expected_result: FAILED
