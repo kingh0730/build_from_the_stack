@@ -13,7 +13,7 @@ from ._config import CACHE_DIR, EXCLUDE_KEYS
 from .analyze_stack_content import AnalyzeContent
 
 
-class TheStackDedupFuncsAstFilter:
+class TheStackDedupAppendImportsStats:
     def __init__(self, *, logger):
         self._ds = None
         self.logger = logger

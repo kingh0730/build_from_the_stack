@@ -2,7 +2,7 @@
 import logging
 
 # Project imports
-from .dataset import TheStackDedupFuncsAstFilter
+from .dataset import TheStackDedupAppendImportsStats
 
 
 def main():
@@ -15,7 +15,7 @@ def main():
 
     logger = logging.getLogger(__name__)
 
-    the_stack_dedup_funcs = TheStackDedupFuncsAstFilter(
+    the_stack_dedup_funcs = TheStackDedupAppendImportsStats(
         logger=logger,
     )
 
