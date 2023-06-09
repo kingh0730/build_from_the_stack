@@ -17,7 +17,7 @@ name = "dataset_the_stack_dedup_funcs_ast_filter" # Required
 #
 # For a discussion on single-sourcing the version, see
 # https://packaging.python.org/guides/single-sourcing-package-version/
-version = "0.0.1" # Required
+version = "0.0.2" # Required
 
 # This is a one-line description or tagline of what your project does. This
 # corresponds to the "Summary" metadata field:
@@ -110,7 +110,7 @@ dependencies = [ # Optional
   "tqdm==4.65.0",
 
   # Workspace dependencies
-  "dataset_the_stack_dedup==0.0.1",
+  "dataset_the_stack_dedup_append_imports_stats==0.0.1",
 ]
 
 # List additional groups of dependencies here (e.g. development
