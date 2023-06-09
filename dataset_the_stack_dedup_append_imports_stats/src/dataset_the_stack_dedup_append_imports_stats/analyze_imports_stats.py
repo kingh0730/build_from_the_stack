@@ -17,7 +17,7 @@ def find_imports_stats(
     try:
         tree = ast.parse(content)
     except Exception:
-        return [], [], [], []
+        tree = ast.parse("")
 
     matches_abs = []
     matches_rel = []
@@ -49,7 +49,12 @@ def find_imports_stats(
                 namespace.append(name)
                 namespace_origin.append(module_name)
 
-    return matches_abs, matches_rel, namespace, namespace_origin
+    return {
+        "ast.Import": matches_abs,
+        "ast.ImportFrom": matches_rel,
+        "namespace": namespace,
+        "namespace_origin": namespace_origin,
+    }
 
 
 def has_stdlib_imports(matches_abs, matches_rel) -> bool:
