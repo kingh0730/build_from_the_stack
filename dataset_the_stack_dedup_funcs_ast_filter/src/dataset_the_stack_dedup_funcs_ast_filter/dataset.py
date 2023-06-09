@@ -10,7 +10,7 @@ class TheStackDedupFuncsAstFilter:
         self._the_stack_dedup = TheStackDedup()
         self._ds = None
 
-    def loads(self, streaming=True):
+    def loads(self):
         self._ds = self._the_stack_dedup.dataset()
 
     def dataset(self):
