@@ -13,10 +13,11 @@ class TheStackDedupDataset:
         self._ds = load_dataset(
             "bigcode/the-stack-dedup",
             data_dir="data/python",
-            streaming=streaming,
             cache_dir=THE_STACK_DEDUP_CACHE_DIR,
+            streaming=streaming,
         )
-        return self._ds
 
     def dataset(self):
+        if self._ds is None:
+            self.loads()
         return self._ds
