@@ -15,9 +15,9 @@ def main():
 
     logger = logging.getLogger(__name__)
 
-    global ds
-
-    the_stack_dedup = TheStackDedupFuncsAstFilter(
+    the_stack_dedup_funcs = TheStackDedupFuncsAstFilter(
         logger=logger,
     )
-    ds = the_stack_dedup.dataset()
+
+    global ds
+    ds = the_stack_dedup_funcs.dataset()
