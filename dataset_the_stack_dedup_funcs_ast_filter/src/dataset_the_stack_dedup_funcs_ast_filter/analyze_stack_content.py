@@ -85,39 +85,3 @@ class AnalyzeContent:
             return AnalyzeContent._analyze(tree)
         except Exception:
             return []
-
-
-if __name__ == "__main__":
-    content = """
-from multiprocessing import Pool
-def func(i : int):
-    pass
-
-def func2(i : int):
-    \"\"\"
-    This is a docstring.
-    \"\"\"
-    pass
-
-def func3(i : int):
-    raise NotImplementedError
-
-def func4(i : int):
-    raise Exception
-
-class A:
-    def __init__(self):
-        pass
-
-    @staticmethod
-    def compute():
-        return 2
-
-    def run(self):
-        return 1
-
-def hello_world():
-    print("Hello world")
-
-"""
-    print(AnalyzeContent.analyze(content))
