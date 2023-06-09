@@ -6,14 +6,14 @@ from itertools import chain
 import pandas as pd
 from tqdm import tqdm
 from datasets import load_from_disk, Dataset
-from dataset_the_stack_dedup_append_imports_stats import TheStackDedupAppendImportsStats
+from dataset_the_stack_dedup_funcs_ast_filter import TheStackDedupFuncsAstFilter
 
 # Project imports
 from ._config import CACHE_DIR, EXCLUDE_KEYS
 from .analyze_stack_content import AnalyzeContent
 
 
-class TheStackDedupFuncsAstFilter:
+class TheStackDedupFuncsImportsStats:
     def __init__(self, *, logger):
         self._ds = None
         self.logger = logger
@@ -36,7 +36,7 @@ class TheStackDedupFuncsAstFilter:
         return self._ds
 
     def build(self):
-        the_stack_dedup_ds = TheStackDedupAppendImportsStats(
+        the_stack_dedup_ds = TheStackDedupFuncsAstFilter(
             logger=self.logger,
         ).dataset()
 
