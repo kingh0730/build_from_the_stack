@@ -42,3 +42,14 @@ def content_to_functions_that_do_not_use_names(
                 functions.append(node.name)
 
     return functions
+
+
+def get_names_not_stdlib_and_not_top_pypi(
+    namespace: list[str], namespace_origin: list[str]
+) -> list[str]:
+    return [
+        name
+        for name, name_origin in zip(namespace, namespace_origin)
+        if name_origin not in stdlib_module_names
+        and name_origin not in top_pypi_packages
+    ]
