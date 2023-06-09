@@ -18,7 +18,10 @@ class A:
     def run(self):
         return 1
 """
-    print(AnalyzeContent.analyze(content))
+    result = AnalyzeContent.analyze(content)
+    assert result == []
+
+    print(result)
 
 
 if __name__ == "__main__":
