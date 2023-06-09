@@ -4,7 +4,7 @@
 
 import unittest
 
-from dataset_the_stack_dedup import main
+from dataset_the_stack_dedup_funcs_ast_filter import main
 
 
 class TestSimple(unittest.TestCase):
