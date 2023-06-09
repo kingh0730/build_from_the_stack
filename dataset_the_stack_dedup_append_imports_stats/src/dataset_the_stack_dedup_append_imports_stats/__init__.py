@@ -15,9 +15,9 @@ def main():
 
     logger = logging.getLogger(__name__)
 
-    the_stack_dedup_funcs = TheStackDedupAppendImportsStats(
+    the_stack_dedup_with_imports_stats = TheStackDedupAppendImportsStats(
         logger=logger,
     )
 
     global ds
-    ds = the_stack_dedup_funcs.dataset()
+    ds = the_stack_dedup_with_imports_stats.dataset()
