@@ -1,7 +1,9 @@
 # Stdlib imports
 import logging
+import shutil
 
 # Project imports
+from ._config import CACHE_DIR
 from .dataset import TheStackDedupFuncsAstFilter
 
 
@@ -21,3 +23,7 @@ def main():
 
     global ds
     ds = the_stack_dedup_funcs.dataset()
+
+
+def clear_cache():
+    shutil.rmtree(CACHE_DIR)
