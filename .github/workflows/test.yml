@@ -25,6 +25,9 @@ jobs:
         run: python -m pip install -U tox
 
       - name: Test
+        run: python -m tox -e py
+
+      - name: Assert OK
         uses: GuillaumeFalourd/assert-command-line-output@v2.2
         with:
           command_line: echo "OK"
