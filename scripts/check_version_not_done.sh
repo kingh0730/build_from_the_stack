@@ -15,7 +15,7 @@ for directory in $directories; do
             # Extract the version from pyproject.toml
             version=$(awk -F'"' '/^version = / {print $2}' "$directory/pyproject.toml")
 
-            done_branch="done/$directory$version"
+            done_branch="done/$directory/$version"
 
             # Check if the git branch exists
             if git show-ref --quiet "refs/heads/$done_branch"; then
