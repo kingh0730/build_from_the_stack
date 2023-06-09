@@ -39,11 +39,13 @@ class TheStackDedupFuncsAstFilter:
         the_stack_dedup_ds = TheStackDedup().dataset()
 
         with Pool() as p:
-            funcs = chain.from_iterable(
-                tqdm(
-                    p.imap(self._file_to_funcs, the_stack_dedup_ds),
-                    total=len(the_stack_dedup_ds),
-                ),
+            funcs = list(
+                chain.from_iterable(
+                    tqdm(
+                        p.imap(self._file_to_funcs, the_stack_dedup_ds),
+                        total=len(the_stack_dedup_ds),
+                    )
+                )
             )
 
         return Dataset.from_pandas(pd.DataFrame(funcs))
