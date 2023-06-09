@@ -2,6 +2,7 @@
 
 ## Versions
 
-- 0.0.1: Using the first 10% of The Stack.
+- 0.0.1
+  - The Stack: using the first 10%
 
 ## Methods
