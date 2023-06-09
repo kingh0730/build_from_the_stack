@@ -11,7 +11,7 @@ for dir in "$current_dir"/*/; do
         cd "$dir"
 
         # Run 'build' command
-        python -m build .
+        python install -e .
 
         # Change back to the original directory
         cd "$current_dir"
