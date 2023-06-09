@@ -22,26 +22,17 @@ def function_uses_names(func_def: ast.FunctionDef, names: list[str]) -> bool:
     return False
 
 
-def content_to_functions_that_do_not_use_names(
-    content: str, names: list[str]
-) -> list[str]:
+def parse_function_uses_names(func_def: str, names: list[str]) -> bool:
     """
     This function is used to find functions that do not use names.
     """
 
-    try:
-        tree = ast.parse(content)
-    except Exception:
-        return []
+    tree = ast.parse(func_def)
 
-    functions = []
+    if not isinstance(node, ast.FunctionDef):
+        raise ValueError("Expected ast.FunctionDef")
 
-    for node in ast.walk(tree):
-        if isinstance(node, ast.FunctionDef):
-            if not function_uses_names(node, names):
-                functions.append(node.name)
-
-    return functions
+    return function_uses_names(node, names)
 
 
 def get_names_not_stdlib_and_not_top_pypi(
