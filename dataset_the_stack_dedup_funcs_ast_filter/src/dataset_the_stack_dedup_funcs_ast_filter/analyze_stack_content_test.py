@@ -27,7 +27,7 @@ class A:
 def test2():
     content = """
 from multiprocessing import Pool
-def func(i : int):
+def func1(i : int):
     pass
 
 def func2(i : int):
