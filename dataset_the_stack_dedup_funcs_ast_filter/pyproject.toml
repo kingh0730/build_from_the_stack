@@ -108,6 +108,9 @@ dependencies = [ # Optional
   "ipython==8.14.0",
   "astpretty==3.0.0",
   "tqdm==4.65.0",
+
+  # Workspace dependencies
+  "dataset_the_stack_dedup==0.0.1",
 ]
 
 # List additional groups of dependencies here (e.g. development
