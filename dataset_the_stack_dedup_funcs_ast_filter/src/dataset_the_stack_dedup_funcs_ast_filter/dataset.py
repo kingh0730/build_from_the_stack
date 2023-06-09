@@ -7,7 +7,7 @@ from ._config import CACHE_DIR
 
 
 class TheStackDedupFuncsAstFilter:
-    def __init__(self, logger):
+    def __init__(self, *, logger):
         self._ds = None
         self.logger = logger
 
