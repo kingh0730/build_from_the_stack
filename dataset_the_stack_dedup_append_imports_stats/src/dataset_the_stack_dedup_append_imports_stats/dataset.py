@@ -10,7 +10,7 @@ from dataset_the_stack_dedup import TheStackDedup
 
 # Project imports
 from ._config import CACHE_DIR
-from .analyze_stack_content import AnalyzeContent
+from .analyze_imports_stats import match_abs_and_rel
 
 
 class TheStackDedupAppendImportsStats:
@@ -38,23 +38,10 @@ class TheStackDedupAppendImportsStats:
     def build(self):
         the_stack_dedup_ds = TheStackDedup().dataset()
 
-        with Pool() as p:
-            funcs = list(
-                chain.from_iterable(
-                    tqdm(
-                        p.imap(self._file_to_funcs, the_stack_dedup_ds),
-                        total=len(the_stack_dedup_ds),
-                    )
-                )
-            )
+        matches = the_stack_dedup_ds.map(
+            lambda d: {
+                "__matches_abs_and_rel__": match_abs_and_rel(d["content"]),
+            },
+        )
 
-        return Dataset.from_pandas(pd.DataFrame(funcs))
-
-    @staticmethod
-    def _file_to_funcs(file_entry):
-        file_content = file_entry["content"]
-        return [
-            {"func": func}
-            | {k: v for k, v in file_entry.items() if k not in EXCLUDE_KEYS}
-            for func in AnalyzeContent.analyze(file_content)
-        ]
+        return matches
