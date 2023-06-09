@@ -46,8 +46,8 @@ class TheStackDedupFuncsImportsStats:
         ds = ds.map(
             lambda d: {
                 "__names_not_stdlib_and_not_top_pypi__": get_names_not_stdlib_and_not_top_pypi(
-                    d["__matches_abs_and_rel__"][2],
-                    d["__matches_abs_and_rel__"][3],
+                    d["__imports_stats__"]["namespace"],
+                    d["__imports_stats__"]["namespace_origin"],
                 )
             },
             num_proc=NUM_PROC,
