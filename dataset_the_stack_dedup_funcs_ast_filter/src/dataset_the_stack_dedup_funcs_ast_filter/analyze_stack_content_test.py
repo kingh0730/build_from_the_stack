@@ -19,9 +19,9 @@ class A:
         return 1
 """
     result = AnalyzeContent.analyze(content)
-    assert result == []
-
     print(result)
+
+    assert result == []
 
 
 def test2():
@@ -57,7 +57,10 @@ def hello_world():
     print("Hello world")
 
 """
-    print(AnalyzeContent.analyze(content))
+    result = AnalyzeContent.analyze(content)
+    print(result)
+
+    assert len(result) == 3
 
 
 if __name__ == "__main__":
