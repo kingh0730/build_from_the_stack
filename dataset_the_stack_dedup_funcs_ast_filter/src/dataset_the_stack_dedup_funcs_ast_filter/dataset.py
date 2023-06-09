@@ -5,7 +5,7 @@ from itertools import chain
 # Third-party imports
 import pandas as pd
 from tqdm import tqdm
-from datasets import load_dataset, load_from_disk, Dataset
+from datasets import load_from_disk, Dataset
 from dataset_the_stack_dedup import TheStackDedup
 
 # Project imports
