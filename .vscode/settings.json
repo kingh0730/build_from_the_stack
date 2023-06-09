@@ -9,6 +9,7 @@
         "dedup",
         "funcs",
         "huggingface",
-        "kingh"
+        "kingh",
+        "tqdm"
     ]
 }
