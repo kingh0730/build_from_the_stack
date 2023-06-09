@@ -1,7 +1,9 @@
-from .build_files import hello_world
+from .build_files.the_stack_dedup import TheStackDedupDataset
 
 
 def main():
     """Entry point for the application script"""
     print("Call your main application code here")
-    hello_world()
+
+    the_stack_dedup = TheStackDedupDataset()
+    ds = the_stack_dedup.dataset()
