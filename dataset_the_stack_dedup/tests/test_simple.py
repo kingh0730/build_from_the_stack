@@ -4,14 +4,13 @@
 
 import unittest
 
-from sample.simple import add_one
+from dataset_the_stack_dedup import main
 
 
 class TestSimple(unittest.TestCase):
+    def test_main_is_a_func(self):
+        self.assertTrue(callable(main))
 
-    def test_add_one(self):
-        self.assertEqual(add_one(5), 6)
 
-
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
