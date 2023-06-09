@@ -9,7 +9,7 @@ CACHE_DIR = BASE_CACHE_DIR + _dir
 
 
 TOP_PYPI_PACKAGES_JSON = (
-    path.dirname(path.dirname(path.dirname(path.abspath(__file__))))
+    path.dirname(path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))
     + "/data/top_pypi_packages/top-pypi-packages-30-days.json"
 )
 
