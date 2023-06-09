@@ -30,7 +30,7 @@ def fix_lazy_json(in_text):
 ```
 
 - Classification: general
-- Reason: The function fix_lazy_json handles the fixing of lazy JSON by manipulating the tokens of the input text. It does not rely on any specific domain knowledge or context. The function can be applied to any JSON data that requires fixing, making it a general-purpose utility.
+- Reason: The function `fix_lazy_json` handles the fixing of lazy JSON by manipulating the tokens of the input text. It does not rely on any specific domain knowledge or context. The function can be applied to any JSON data that requires fixing, making it a general-purpose utility.
 
 ---
 
@@ -42,7 +42,7 @@ def bian_int_list(l1):
 ```
 
 - Classification: idiosyncratic
-- Reason: The function bian_int_list takes a list l1 as input and creates a new list re_l1 by appending each element from l1. The purpose and functionality of this function are not clear from the code alone. The function name and variable names (l1, re_l1) provide limited information about its intended use. Without additional context, it is difficult to determine the generalizability or specific purpose of this function.
+- Reason: The function `bian_int_list` takes a list `l1` as input and creates a new list `re_l1` by appending each element from `l1`. The purpose and functionality of this function are not clear from the code alone. The function name and variable names (`l1`, `re_l1`) provide limited information about its intended use. Without additional context, it is difficult to determine the generalizability or specific purpose of this function.
 
 ---
 
@@ -52,7 +52,7 @@ def list_opts():
 ```
 
 - Classification: general
-- Reason: The function list_opts returns a dictionary where the key is hyperv_opt_group and the value is hyperv_opts. Although the specific values of hyperv_opt_group and hyperv_opts are not shown in the code snippet, the function itself is a general-purpose utility for returning a dictionary of options. It does not rely on any specific domain knowledge or context, and the functionality can be applied to various scenarios where options need to be listed and returned as a dictionary.
+- Reason: The function `list_opts` returns a dictionary where the key is `hyperv_opt_group` and the value is `hyperv_opts`. Although the specific values of `hyperv_opt_group` and `hyperv_opts` are not shown in the code snippet, the function itself is a general-purpose utility for returning a dictionary of options. It does not rely on any specific domain knowledge or context, and the functionality can be applied to various scenarios where options need to be listed and returned as a dictionary.
 
 ---
 
@@ -63,7 +63,7 @@ def register_opts(conf):
 ```
 
 - Classification: general
-- Reason: The function register_opts takes a conf object as input and performs operations on it to register options. The specific details of the conf object, hyperv_opt_group, and hyperv_opts are not provided in the code snippet, but based on the function name and the usage of register_group and register_opts, it can be inferred that the function is a general-purpose utility for registering options within a configuration object. The function does not rely on any specific domain knowledge or context, making it applicable to various scenarios where options need to be registered.
+- Reason: The function `register_opts` takes a `conf` object as input and performs operations on it to register options. The specific details of the `conf` object, `hyperv_opt_group`, and `hyperv_opts` are not provided in the code snippet, but based on the function name and the usage of `register_group` and `register_opts`, it can be inferred that the function is a general-purpose utility for registering options within a configuration object. The function does not rely on any specific domain knowledge or context, making it applicable to various scenarios where options need to be registered.
 
 ---
 
@@ -73,7 +73,7 @@ def _fromUtf8(s):
 ```
 
 - Classification: idiosyncratic
-- Reason: The function _fromUtf8 simply returns the input s without performing any transformation or manipulation. The purpose and functionality of this function are not clear from the code alone. The function name suggests that it might be related to encoding or decoding strings from UTF-8, but without additional context or usage information, it is difficult to determine its specific purpose. Moreover, the function does not demonstrate generalizability and appears to be specific to a particular use case or coding convention.
+- Reason: The function `_fromUtf8` simply returns the input `s` without performing any transformation or manipulation. The purpose and functionality of this function are not clear from the code alone. The function name suggests that it might be related to encoding or decoding strings from UTF-8, but without additional context or usage information, it is difficult to determine its specific purpose. Moreover, the function does not demonstrate generalizability and appears to be specific to a particular use case or coding convention.
 
 ---
 
@@ -83,6 +83,6 @@ def _translate(context, text, disambig):
 ```
 
 - Classification: idiosyncratic
-- Reason: The function _translate is specific to a particular library or framework. It utilizes the QtGui.QApplication.translate function to perform translation of text within a GUI application. The parameters context, text, and disambig are used as arguments for the translation. The specific functionality and usage of this function are dependent on the context and conventions of the library it belongs to. Therefore, it is idiosyncratic and not generalizable to other contexts or applications.
+- Reason: The function `_translate` is specific to a particular library or framework. It utilizes the `QtGui.QApplication.translate` function to perform translation of text within a GUI application. The parameters `context`, `text`, and `disambig` are used as arguments for the translation. The specific functionality and usage of this function are dependent on the context and conventions of the library it belongs to. Therefore, it is idiosyncratic and not generalizable to other contexts or applications.
 
 ---
