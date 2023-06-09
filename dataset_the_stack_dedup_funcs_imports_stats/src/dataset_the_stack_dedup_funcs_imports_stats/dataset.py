@@ -12,7 +12,7 @@ from dataset_the_stack_dedup_funcs_ast_filter import TheStackDedupFuncsAstFilter
 from ._config import CACHE_DIR, NUM_PROC
 from .analyze_imports_stats import (
     get_names_not_stdlib_and_not_top_pypi,
-    content_to_functions_that_do_not_use_names,
+    parse_function_uses_names,
 )
 
 
@@ -56,8 +56,8 @@ class TheStackDedupFuncsImportsStats:
 
         ds = ds.map(
             lambda d: {
-                "__functions_that_do_not_use_names__": content_to_functions_that_do_not_use_names(
-                    d["content"], d["__names_not_stdlib_and_not_top_pypi__"]
+                "__uses_other_imports__": parse_function_uses_names(
+                    d["func"], d["__names_not_stdlib_and_not_top_pypi__"]
                 )
             },
             num_proc=NUM_PROC,
