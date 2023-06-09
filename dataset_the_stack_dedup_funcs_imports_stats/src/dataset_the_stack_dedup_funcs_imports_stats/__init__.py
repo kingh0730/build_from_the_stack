@@ -4,7 +4,7 @@ import shutil
 
 # Project imports
 from ._config import CACHE_DIR
-from .dataset import TheStackDedupFuncsAstFilter
+from .dataset import TheStackDedupFuncsImportsStats
 
 
 def main():
@@ -17,7 +17,7 @@ def main():
 
     logger = logging.getLogger(__name__)
 
-    the_stack_dedup_funcs = TheStackDedupFuncsAstFilter(
+    the_stack_dedup_funcs = TheStackDedupFuncsImportsStats(
         logger=logger,
     )
 
