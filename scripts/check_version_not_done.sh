@@ -10,7 +10,7 @@ for directory in $directories; do
         # Check if pyproject.toml exists
         if [ -f "$directory/pyproject.toml" ]; then
             # Extract the version from pyproject.toml
-            version=$(awk -F= '/^version/ { gsub(/[[:blank:]]/, "", $2); print $2 }' "$directory/pyproject.toml")
+            version=$(awk -F'"' '/^version = / {print $2}' "$directory/pyproject.toml")
 
             # Check if the git branch exists
             if git show-ref --quiet "refs/heads/$directory$version"; then
