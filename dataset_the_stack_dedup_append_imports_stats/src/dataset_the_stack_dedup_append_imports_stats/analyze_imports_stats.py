@@ -11,7 +11,7 @@ def take_before_dot(s: str) -> str:
     return s.split(".")[0]
 
 
-def match_abs_and_rel(
+def find_imports_stats(
     content: str,
 ) -> Tuple[list[str], list[str], list[str], list[str]]:
     try:

@@ -11,7 +11,7 @@ from dataset_the_stack_dedup import TheStackDedup
 # Project imports
 from ._config import CACHE_DIR, NUM_PROC
 from .analyze_imports_stats import (
-    match_abs_and_rel,
+    find_imports_stats,
     has_stdlib_imports,
     has_top_pypi_imports,
     has_other_imports,
@@ -45,7 +45,7 @@ class TheStackDedupAppendImportsStats:
 
         matches = the_stack_dedup_ds.map(
             lambda d: {
-                "__matches_abs_and_rel__": match_abs_and_rel(d["content"]),
+                "__matches_abs_and_rel__": find_imports_stats(d["content"]),
             },
             num_proc=NUM_PROC,
         )
