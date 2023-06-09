@@ -110,7 +110,7 @@ dependencies = [ # Optional
   "tqdm==4.65.0",
 
   # Workspace dependencies
-  "dataset_the_stack_dedup_funcs_ast_filter==0.0.1",
+  "dataset_the_stack_dedup_funcs_ast_filter==0.0.2",
 ]
 
 # List additional groups of dependencies here (e.g. development
