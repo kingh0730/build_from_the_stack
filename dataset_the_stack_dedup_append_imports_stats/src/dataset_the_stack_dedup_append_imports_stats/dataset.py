@@ -10,7 +10,12 @@ from dataset_the_stack_dedup import TheStackDedup
 
 # Project imports
 from ._config import CACHE_DIR, NUM_PROC
-from .analyze_imports_stats import match_abs_and_rel
+from .analyze_imports_stats import (
+    match_abs_and_rel,
+    has_stdlib_imports,
+    has_top_pypi_imports,
+    has_other_imports,
+)
 
 
 class TheStackDedupAppendImportsStats:
@@ -45,4 +50,22 @@ class TheStackDedupAppendImportsStats:
             num_proc=NUM_PROC,
         )
 
-        return matches
+        ds = matches.map(
+            lambda d: {
+                "__has_stdlib_imports__": has_stdlib_imports(
+                    d["__matches_abs_and_rel__"][0],
+                    d["__matches_abs_and_rel__"][1],
+                ),
+                "__has_top_pypi_imports__": has_top_pypi_imports(
+                    d["__matches_abs_and_rel__"][0],
+                    d["__matches_abs_and_rel__"][1],
+                ),
+                "__has_other_imports__": has_other_imports(
+                    d["__matches_abs_and_rel__"][0],
+                    d["__matches_abs_and_rel__"][1],
+                ),
+            },
+            num_proc=NUM_PROC,
+        )
+
+        return ds
