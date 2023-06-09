@@ -9,25 +9,16 @@ class TheStackDedup:
     def __init__(self):
         self._ds = None
 
-    def loads(
-        self,
-        streaming,
-    ):
+    def loads(self):
         self._ds = load_dataset(
             "bigcode/the-stack-dedup",
             data_dir="data/python",  # Only use Python
             split="train",  # This dataset has no split
             cache_dir=CACHE_DIR,
-            streaming=streaming,
         )
 
-    def dataset(
-        self,
-        streaming=True,
-    ):
+    def dataset(self):
         if self._ds is None:
-            self.loads(
-                streaming=streaming,
-            )
+            self.loads()
 
         return self._ds
