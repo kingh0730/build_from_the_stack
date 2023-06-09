@@ -20,5 +20,4 @@ class TheStackDedup:
     def dataset(self):
         if self._ds is None:
             self.loads()
-
         return self._ds
