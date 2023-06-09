@@ -27,7 +27,7 @@ jobs:
         run: python -m pip install -U tox
 
       - name: Test
-        run: python -m tox -e py
+        run: bash scripts/github_test.sh
 
       - name: Assert OK
         uses: GuillaumeFalourd/assert-command-line-output@v2.2
