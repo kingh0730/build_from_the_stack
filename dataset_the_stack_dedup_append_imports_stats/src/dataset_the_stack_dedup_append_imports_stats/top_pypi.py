@@ -1,7 +1,9 @@
+# Stdlib imports
 import json
 
+# Project imports
+from ._config import TOP_PYPI_PACKAGES_JSON
 
-TOP_PYPI_PACKAGES_JSON = "../data/top_pypi_packages/top-pypi-packages-30-days.json"
 
 # Read JSON
 with open(TOP_PYPI_PACKAGES_JSON, "r") as f:
