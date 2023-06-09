@@ -62,6 +62,11 @@ def hello_world():
 
     assert len(result) == 3
 
+    joined = "".join(result)
+    assert "def func2(" in joined
+    assert "def func4(" in joined
+    assert "def hello_world(" in joined
+
 
 if __name__ == "__main__":
     test1()
