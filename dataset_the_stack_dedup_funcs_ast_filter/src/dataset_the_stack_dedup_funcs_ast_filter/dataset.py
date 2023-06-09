@@ -13,8 +13,9 @@ class TheStackDedupFuncsAstFilter:
     def loads(self):
         try:
             ds = load_dataset(CACHE_DIR)
-        except Exception:
+        except FileNotFoundError:
             ds = self.build()
+            ds.save_to_disk(CACHE_DIR)
         self._ds = ds
 
     def dataset(self):
@@ -22,7 +23,7 @@ class TheStackDedupFuncsAstFilter:
             self.loads()
         return self._ds
 
-    def build():
-        the_stack_dedup = TheStackDedup().dataset()
+    def build(self):
+        # the_stack_dedup = TheStackDedup().dataset()
         ds = load_dataset("squad", split="train")
         return ds
