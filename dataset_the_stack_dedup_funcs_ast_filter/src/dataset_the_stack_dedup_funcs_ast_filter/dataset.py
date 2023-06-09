@@ -6,7 +6,7 @@ from itertools import chain
 import pandas as pd
 from tqdm import tqdm
 from datasets import load_from_disk, Dataset
-from dataset_the_stack_dedup import TheStackDedup
+from dataset_the_stack_dedup_append_imports_stats import TheStackDedupAppendImportsStats
 
 # Project imports
 from ._config import CACHE_DIR, EXCLUDE_KEYS
@@ -36,7 +36,9 @@ class TheStackDedupFuncsAstFilter:
         return self._ds
 
     def build(self):
-        the_stack_dedup_ds = TheStackDedup().dataset()
+        the_stack_dedup_ds = TheStackDedupAppendImportsStats(
+            logger=self.logger,
+        ).dataset()
 
         with Pool() as p:
             funcs = list(
