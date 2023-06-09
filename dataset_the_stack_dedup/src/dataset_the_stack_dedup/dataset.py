@@ -9,7 +9,10 @@ class TheStackDedup:
     def __init__(self):
         self._ds = None
 
-    def loads(self, streaming=True):
+    def loads(
+        self,
+        streaming,
+    ):
         self._ds = load_dataset(
             "bigcode/the-stack-dedup",
             data_dir="data/python",
@@ -17,7 +20,13 @@ class TheStackDedup:
             streaming=streaming,
         )
 
-    def dataset(self):
+    def dataset(
+        self,
+        streaming=True,
+    ):
         if self._ds is None:
-            self.loads()
+            self.loads(
+                streaming=streaming,
+            )
+
         return self._ds
