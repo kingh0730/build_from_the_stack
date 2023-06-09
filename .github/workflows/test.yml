@@ -24,7 +24,7 @@ jobs:
           python-version: ${{ matrix.python }}
 
       - name: Install test dependencies
-        run: python -m pip install -U tox
+        run: python -m pip install -U tox build
 
       - name: Test tox
         run: bash scripts/test_tox.sh
