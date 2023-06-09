@@ -9,8 +9,9 @@ from datasets import load_from_disk, Dataset
 from dataset_the_stack_dedup_funcs_ast_filter import TheStackDedupFuncsAstFilter
 
 # Project imports
-from ._config import CACHE_DIR, EXCLUDE_KEYS
-from .analyze_stack_content import AnalyzeContent
+from ._config import CACHE_DIR
+
+# from .analyze_stack_content import AnalyzeContent
 
 
 class TheStackDedupFuncsImportsStats:
@@ -36,27 +37,6 @@ class TheStackDedupFuncsImportsStats:
         return self._ds
 
     def build(self):
-        the_stack_dedup_ds = TheStackDedupFuncsAstFilter(
+        funcs = TheStackDedupFuncsAstFilter(
             logger=self.logger,
         ).dataset()
-
-        with Pool() as p:
-            funcs = list(
-                chain.from_iterable(
-                    tqdm(
-                        p.imap(self._file_to_funcs, the_stack_dedup_ds),
-                        total=len(the_stack_dedup_ds),
-                    )
-                )
-            )
-
-        return Dataset.from_pandas(pd.DataFrame(funcs))
-
-    @staticmethod
-    def _file_to_funcs(file_entry):
-        file_content = file_entry["content"]
-        return [
-            {"func": func}
-            | {k: v for k, v in file_entry.items() if k not in EXCLUDE_KEYS}
-            for func in AnalyzeContent.analyze(file_content)
-        ]
