@@ -1,5 +1,5 @@
 # Stdlib imports
-from os import path
+from os import path, cpu_count
 from importlib.metadata import version
 
 
@@ -12,3 +12,6 @@ TOP_PYPI_PACKAGES_JSON = (
     path.dirname(path.dirname(path.dirname(path.abspath(__file__))))
     + "/data/top_pypi_packages/top-pypi-packages-30-days.json"
 )
+
+
+NUM_PROC = cpu_count()
