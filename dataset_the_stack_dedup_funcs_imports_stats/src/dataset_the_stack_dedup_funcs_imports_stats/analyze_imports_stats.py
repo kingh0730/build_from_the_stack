@@ -34,7 +34,7 @@ def parse_function_uses_names(func_def: str, names: list[str]) -> bool:
     for node in ast.walk(tree):
         if isinstance(node, ast.FunctionDef):
             if result is not None:
-                raise ValueError("Multiple functions found")
+                raise ValueError(f"Multiple functions found: {func_def}")
             result = function_uses_names(node, names)
 
     if result is None:
