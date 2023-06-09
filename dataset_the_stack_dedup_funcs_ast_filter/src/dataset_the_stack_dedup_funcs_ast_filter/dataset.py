@@ -1,5 +1,5 @@
 # Third-party imports
-from datasets import load_dataset
+from datasets import load_dataset, load_from_disk
 from dataset_the_stack_dedup import TheStackDedup
 
 # Project imports
@@ -12,7 +12,7 @@ class TheStackDedupFuncsAstFilter:
 
     def loads(self):
         try:
-            ds = load_dataset(CACHE_DIR)
+            ds = load_from_disk(CACHE_DIR)
         except FileNotFoundError:
             ds = self.build()
             ds.save_to_disk(CACHE_DIR)
