@@ -19,7 +19,7 @@ for directory in $directories; do
 
             # Check if the git branch exists
             if git show-ref --quiet "refs/heads/$done_branch"; then
-                echo "Git branch $done_branch exists."
+                echo "Git branch $done_branch exists, DONE!"
             else
                 echo "Git branch $done_branch does not exist."
             fi
