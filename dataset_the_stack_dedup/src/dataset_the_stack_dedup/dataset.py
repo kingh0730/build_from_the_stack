@@ -2,7 +2,7 @@
 from datasets import load_dataset
 
 # Project imports
-from ._config import THE_STACK_DEDUP_CACHE_DIR
+from ._config import CACHE_DIR
 
 
 class TheStackDedupDataset:
@@ -13,7 +13,7 @@ class TheStackDedupDataset:
         self._ds = load_dataset(
             "bigcode/the-stack-dedup",
             data_dir="data/python",
-            cache_dir=THE_STACK_DEDUP_CACHE_DIR,
+            cache_dir=CACHE_DIR,
             streaming=streaming,
         )
 
