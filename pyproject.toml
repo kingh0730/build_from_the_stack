@@ -10,19 +10,19 @@
 # There are some restrictions on what makes a valid project name
 # specification here:
 # https://packaging.python.org/specifications/core-metadata/#name
-name = "sampleproject"  # Required
+name = "sampleproject" # Required
 
 # Versions should comply with PEP 440:
 # https://www.python.org/dev/peps/pep-0440/
 #
 # For a discussion on single-sourcing the version, see
 # https://packaging.python.org/guides/single-sourcing-package-version/
-version = "3.0.0"  # Required
+version = "3.0.0" # Required
 
 # This is a one-line description or tagline of what your project does. This
 # corresponds to the "Summary" metadata field:
 # https://packaging.python.org/specifications/core-metadata/#summary
-description = "A sample Python project"  # Optional
+description = "A sample Python project" # Optional
 
 # This is an optional longer description of your project that represents
 # the body of text which users will see when they visit PyPI.
@@ -43,7 +43,7 @@ requires-python = ">=3.7"
 # This is either text indicating the license for the distribution, or a file
 # that contains the license
 # https://packaging.python.org/en/latest/specifications/core-metadata/#license
-license = {file = "LICENSE.txt"}
+license = { file = "LICENSE.txt" }
 
 # This field adds keywords for your project which will appear on the
 # project page. What does your project relate to?
@@ -51,26 +51,26 @@ license = {file = "LICENSE.txt"}
 # Note that this is a list of additional keywords, separated
 # by commas, to be used to assist searching for the distribution in a
 # larger catalog.
-keywords = ["sample", "setuptools", "development"]  # Optional
+keywords = ["sample", "setuptools", "development"] # Optional
 
 # This should be your name or the name of the organization who originally
 # authored the project, and a valid email address corresponding to the name
 # listed.
 authors = [
-  {name = "A. Random Developer", email = "author@example.com" } # Optional
+  { name = "A. Random Developer", email = "author@example.com" }, # Optional
 ]
 
 # This should be your name or the names of the organization who currently
 # maintains the project, and a valid email address corresponding to the name
 # listed.
 maintainers = [
-  {name = "A. Great Maintainer", email = "maintainer@example.com" } # Optional
+  { name = "A. Great Maintainer", email = "maintainer@example.com" }, # Optional
 ]
 
 # Classifiers help users find your project by categorizing it.
 #
 # For a list of valid classifiers, see https://pypi.org/classifiers/
-classifiers = [  # Optional
+classifiers = [ # Optional
   # How mature is this project? Common values are
   #   3 - Alpha
   #   4 - Beta
@@ -103,7 +103,7 @@ classifiers = [  # Optional
 # For an analysis of this field vs pip's requirements files see:
 # https://packaging.python.org/discussions/install-requires-vs-requirements/
 dependencies = [ # Optional
-  "peppercorn"
+  "transformers==4.30.0",
 ]
 
 # List additional groups of dependencies here (e.g. development
@@ -128,7 +128,7 @@ test = ["coverage"]
 # issues, where the source is hosted, where to say thanks to the package
 # maintainers, and where to support the project financially. The key is
 # what's used to render the link text on PyPI.
-[project.urls]  # Optional
+[project.urls] # Optional
 "Homepage" = "https://github.com/pypa/sampleproject"
 "Bug Reports" = "https://github.com/pypa/sampleproject/issues"
 "Funding" = "https://donate.pypi.org"
@@ -137,7 +137,7 @@ test = ["coverage"]
 
 # The following would provide a command line executable called `sample`
 # which executes the function `main` from this package when invoked.
-[project.scripts]  # Optional
+[project.scripts] # Optional
 sample = "sample:main"
 
 # This is configuration specific to the `setuptools` build backend.
@@ -145,7 +145,7 @@ sample = "sample:main"
 [tool.setuptools]
 # If there are data files included in your packages that need to be
 # installed, specify them here.
-package-data = {"sample" = ["*.dat"]}
+package-data = { "sample" = ["*.dat"] }
 
 [build-system]
 # These are the assumed default build requirements from pip:
