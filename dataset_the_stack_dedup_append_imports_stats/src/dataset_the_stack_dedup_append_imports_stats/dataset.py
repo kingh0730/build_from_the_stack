@@ -45,7 +45,7 @@ class TheStackDedupAppendImportsStats:
 
         matches = the_stack_dedup_ds.map(
             lambda d: {
-                "__matches_abs_and_rel__": find_imports_stats(d["content"]),
+                "__imports_stats__": find_imports_stats(d["content"]),
             },
             num_proc=NUM_PROC,
         )
@@ -53,16 +53,16 @@ class TheStackDedupAppendImportsStats:
         ds = matches.map(
             lambda d: {
                 "__has_stdlib_imports__": has_stdlib_imports(
-                    d["__matches_abs_and_rel__"]["ast.Import"],
-                    d["__matches_abs_and_rel__"]["ast.ImportFrom"],
+                    d["__imports_stats__"]["ast.Import"],
+                    d["__imports_stats__"]["ast.ImportFrom"],
                 ),
                 "__has_top_pypi_imports__": has_top_pypi_imports(
-                    d["__matches_abs_and_rel__"]["ast.Import"],
-                    d["__matches_abs_and_rel__"]["ast.ImportFrom"],
+                    d["__imports_stats__"]["ast.Import"],
+                    d["__imports_stats__"]["ast.ImportFrom"],
                 ),
                 "__has_other_imports__": has_other_imports(
-                    d["__matches_abs_and_rel__"]["ast.Import"],
-                    d["__matches_abs_and_rel__"]["ast.ImportFrom"],
+                    d["__imports_stats__"]["ast.Import"],
+                    d["__imports_stats__"]["ast.ImportFrom"],
                 ),
             },
             num_proc=NUM_PROC,
