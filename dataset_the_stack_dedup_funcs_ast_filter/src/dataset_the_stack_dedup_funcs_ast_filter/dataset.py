@@ -36,6 +36,25 @@ class TheStackDedupFuncsAstFilter:
         return self._ds
 
     def build(self):
-        # the_stack_dedup = TheStackDedup().dataset()
-        ds = load_dataset("squad", split="train")
-        return ds
+        the_stack_dedup_ds = TheStackDedup().dataset()
+
+        with Pool() as p:
+            funcs = chain.from_iterable(
+                tqdm(
+                    p.imap(self._file_to_funcs, the_stack_dedup_ds),
+                    total=len(the_stack_dedup_ds),
+                ),
+            )
+
+        return Dataset.from_pandas(pd.DataFrame(funcs))
+
+    @staticmethod
+    def _file_to_funcs(file_entry):
+        file_content = file_entry["content"]
+        return [
+            {
+                **file_entry,
+                "func": func,
+            }
+            for func in AnalyzeContent.analyze(file_content)
+        ]
