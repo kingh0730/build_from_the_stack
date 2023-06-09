@@ -1,4 +1,4 @@
-from .the_stack_dedup import TheStackDedupDataset
+from .dataset import TheStackDedupDataset
 
 
 def main():
