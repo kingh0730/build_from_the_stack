@@ -9,7 +9,7 @@ from datasets import load_from_disk, Dataset
 from dataset_the_stack_dedup import TheStackDedup
 
 # Project imports
-from ._config import CACHE_DIR
+from ._config import CACHE_DIR, NUM_PROC
 from .analyze_imports_stats import match_abs_and_rel
 
 
@@ -42,6 +42,7 @@ class TheStackDedupAppendImportsStats:
             lambda d: {
                 "__matches_abs_and_rel__": match_abs_and_rel(d["content"]),
             },
+            num_proc=NUM_PROC,
         )
 
         return matches
