@@ -9,7 +9,7 @@ from datasets import load_from_disk, Dataset
 from dataset_the_stack_dedup import TheStackDedup
 
 # Project imports
-from ._config import CACHE_DIR, EXCLUDE_KEYS
+from ._config import CACHE_DIR
 from .analyze_stack_content import AnalyzeContent
 
 
