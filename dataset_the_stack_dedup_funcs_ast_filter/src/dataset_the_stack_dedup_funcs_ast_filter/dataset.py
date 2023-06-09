@@ -9,7 +9,7 @@ from datasets import load_from_disk, Dataset
 from dataset_the_stack_dedup import TheStackDedup
 
 # Project imports
-from ._config import CACHE_DIR
+from ._config import CACHE_DIR, EXCLUDE_KEYS
 from .analyze_stack_content import AnalyzeContent
 
 
@@ -54,9 +54,7 @@ class TheStackDedupFuncsAstFilter:
     def _file_to_funcs(file_entry):
         file_content = file_entry["content"]
         return [
-            {
-                **file_entry,
-                "func": func,
-            }
+            {"func": func}
+            | {k: v for k, v in file_entry.items() if k not in EXCLUDE_KEYS}
             for func in AnalyzeContent.analyze(file_content)
         ]
