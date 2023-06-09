@@ -28,19 +28,15 @@ def parse_function_uses_names(func_def: str, names: list[str]) -> bool:
     """
 
     tree = ast.parse(func_def)
+    walk = ast.walk(tree)
 
-    result = None
+    next(walk)
+    node = next(walk)
 
-    for node in ast.walk(tree):
-        if isinstance(node, ast.FunctionDef):
-            if result is not None:
-                raise ValueError(f"Multiple functions found: {func_def}")
-            result = function_uses_names(node, names)
+    if not isinstance(node, ast.FunctionDef):
+        raise ValueError("Not a function")
 
-    if result is None:
-        raise ValueError("No function found")
-
-    return result
+    return function_uses_names(node, names)
 
 
 def get_names_not_stdlib_and_not_top_pypi(
