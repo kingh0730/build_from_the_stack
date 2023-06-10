@@ -1,6 +1,6 @@
 # A sample Python project
 
-![Test](https://github.com/kingh0730/build_from_the_stack/actions/workflows/test.yml)
+![Test](https://github.com/kingh0730/build_from_the_stack/actions/workflows/test.yml/badge.svg)
 
 ![Python Logo](https://www.python.org/static/community_logos/python-logo.png "Sample inline image")
 
