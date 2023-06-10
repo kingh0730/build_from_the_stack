@@ -33,12 +33,12 @@ jobs:
         # run: bash scripts/test_tox.sh
         run: python -m pip list
 
-      - name: Assert all dirty packages have dirty version
-        run: bash scripts/check_versions_done.sh
+      - name: Run all dirty packages have dirty version
+        run: bash scripts/check_dirty_pkg_dirty_version.sh
 
-      - name: Assert all packages have dirty version
+      - name: Assert all dirty packages have dirty version
         uses: GuillaumeFalourd/assert-command-line-output@v2.2
         with:
-          command_line: bash scripts/check_versions_done.sh
+          command_line: bash scripts/check_dirty_pkg_dirty_version.sh
           contains: NOT_OK!
           expected_result: FAILED
