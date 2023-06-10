@@ -1,10 +1,18 @@
 #!/bin/bash
 
+# Manually set the last clean commit hash
+last_clean_commit="6fa51cd03073a02d969bea322250e1fa3d8290da"
+
 # Get the last commit hash
 last_commit=$(git rev-parse HEAD)
 
 # Find the modified directories using git diff-tree
-modified_directories=$(git diff-tree --no-commit-id --name-only -r "$last_commit" | xargs -I{} dirname {} | sort -u)
+modified_directories=$(
+    git diff-tree --no-commit-id --name-only -r \
+        "$last_clean_commit" "$last_commit" |
+        xargs -I{} dirname {} |
+        sort -u
+)
 
 # Print the modified directories
 for dir in $modified_directories; do
