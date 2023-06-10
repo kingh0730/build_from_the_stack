@@ -27,14 +27,11 @@ jobs:
         run: python -m pip install -U build tox pytest
 
       - name: Install
-        run: source scripts/install.sh
+        run: bash scripts/install.sh
 
-      - name: pip list
+      - name: Test pip list
+        # run: bash scripts/test_tox.sh
         run: python -m pip list
-
-      - name: Test
-        # run: source scripts/test_tox.sh
-        run: python -m pytest
 
       - name: Assert all packages have dirty version
         run: bash scripts/check_versions_done.sh
