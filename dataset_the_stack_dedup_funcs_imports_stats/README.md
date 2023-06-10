@@ -6,6 +6,4 @@
   - Append function-level imports stats
   - `"dataset_the_stack_dedup_funcs_ast_filter==0.0.2"`
 
-- 0.0.2 (working)
-
 ## Methods
