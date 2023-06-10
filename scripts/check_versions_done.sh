@@ -8,8 +8,9 @@ modified_directories=$(git diff-tree --no-commit-id --name-only -r "$last_commit
 
 # Print the modified directories
 for dir in $modified_directories; do
-    if [ -f "$dir/pyproject.toml" ]; then
+    echo "$dir has been modified."
 
+    if [ -f "$dir/pyproject.toml" ]; then
         # Extract the version from pyproject.toml
         version=$(awk -F'"' '/^version = / {print $2}' "$dir/pyproject.toml")
 
@@ -21,6 +22,5 @@ for dir in $modified_directories; do
         else
             echo "Git branch $done_branch does not exist, OK."
         fi
-
     fi
 done
