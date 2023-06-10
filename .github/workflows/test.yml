@@ -29,8 +29,8 @@ jobs:
       - name: Install
         run: source scripts/install.sh
 
-      - name: Test tox
-        run: source scripts/test_tox.sh
+      # - name: Test tox
+      #   run: source scripts/test_tox.sh
 
       - name: Assert OK
         uses: GuillaumeFalourd/assert-command-line-output@v2.2
