@@ -11,7 +11,7 @@ for dir in "$current_dir"/*/; do
         cd "$dir"
 
         # Run 'install' command
-        python -m pip install -e .
+        python -m pip install -e ".[dev,test]"
 
         # Change back to the original directory
         cd "$current_dir"
