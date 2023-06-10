@@ -10,7 +10,7 @@ last_commit=$(git rev-parse HEAD)
 modified_directories=$(
     git diff-tree --no-commit-id --name-only -r \
         "$last_clean_commit" "$last_commit" |
-        xargs -I{} dirname {} |
+        xargs -I {} dirname {} |
         sort -u
 )
 
