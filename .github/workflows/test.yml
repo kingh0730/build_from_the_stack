@@ -29,6 +29,9 @@ jobs:
       - name: Install
         run: source scripts/install.sh
 
+      - name: pip list
+        run: python -m pip list
+
       # - name: Test tox
       #   run: source scripts/test_tox.sh
 
