@@ -10,8 +10,9 @@ for dir in "$current_dir"/*/; do
         # Change into the child directory
         cd "$dir"
 
-        # Run 'tox' command
-        python -m tox -e py
+        # FIXME Run 'tox' command
+        # python -m tox -e py
+        python -m pytest
 
         # Change back to the original directory
         cd "$current_dir"

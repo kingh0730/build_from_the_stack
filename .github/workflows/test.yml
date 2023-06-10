@@ -32,9 +32,8 @@ jobs:
       - name: pip list
         run: python -m pip list
 
-      - name: Test
-        # run: bash scripts/test_tox.sh
-        run: python -m pytest
+      - name: Test tox
+        run: bash scripts/test_tox.sh
 
       - name: Test git
         run: git log
