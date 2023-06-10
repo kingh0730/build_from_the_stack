@@ -37,7 +37,7 @@ jobs:
         run: python -m pytest
 
       - name: Test git
-        run: git diff-tree --no-commit-id --name-only -r HEAD
+        run: git log
 
       - name: Run all dirty packages have dirty version
         run: bash scripts/check_dirty_pkg_dirty_version.sh
