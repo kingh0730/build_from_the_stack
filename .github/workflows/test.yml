@@ -40,5 +40,5 @@ jobs:
         uses: GuillaumeFalourd/assert-command-line-output@v2.2
         with:
           command_line: bash scripts/check_versions_done.sh
-          contains: DONE!
+          contains: NOT_OK!
           expected_result: FAILED
