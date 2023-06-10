@@ -33,11 +33,11 @@ jobs:
       #   run: source scripts/test_tox.sh
 
       - name: Assert all packages have dirty version
-        run: bash scripts/check_versions_done
+        run: bash scripts/check_versions_done.sh
 
       - name: Assert all packages have dirty version
         uses: GuillaumeFalourd/assert-command-line-output@v2.2
         with:
-          command_line: bash scripts/check_versions_done
+          command_line: bash scripts/check_versions_done.sh
           contains: DONE!
           expected_result: FAILED
