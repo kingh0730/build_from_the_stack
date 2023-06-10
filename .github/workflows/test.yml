@@ -32,8 +32,9 @@ jobs:
       - name: pip list
         run: python -m pip list
 
-      # - name: Test tox
-      #   run: source scripts/test_tox.sh
+      - name: Test
+        # run: source scripts/test_tox.sh
+        run: python -m pytest
 
       - name: Assert all packages have dirty version
         run: bash scripts/check_versions_done.sh
