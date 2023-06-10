@@ -29,12 +29,12 @@ jobs:
       - name: Install
         run: bash scripts/install.sh
 
-      - name: Test pip list
-        # run: bash scripts/test_tox.sh
+      - name: pip list
         run: python -m pip list
 
-      - name: Test git
-        run: git rev-parse HEAD
+      - name: Test
+        # run: bash scripts/test_tox.sh
+        run: python -m pytest
 
       - name: Test git
         run: git diff-tree --no-commit-id --name-only -r HEAD
