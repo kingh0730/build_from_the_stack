@@ -33,7 +33,7 @@ jobs:
         # run: bash scripts/test_tox.sh
         run: python -m pip list
 
-      - name: Assert all packages have dirty version
+      - name: Assert all dirty packages have dirty version
         run: bash scripts/check_versions_done.sh
 
       - name: Assert all packages have dirty version
