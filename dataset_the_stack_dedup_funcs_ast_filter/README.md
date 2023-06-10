@@ -10,4 +10,6 @@
   - With imports stats
   - `dataset_the_stack_dedup_append_imports_stats==0.0.1`
 
+- 0.0.3 (working)
+
 ## Methods
