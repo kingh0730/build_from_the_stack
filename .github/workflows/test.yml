@@ -33,6 +33,9 @@ jobs:
         # run: bash scripts/test_tox.sh
         run: python -m pip list
 
+      - name: Test git status
+        run: git status
+
       - name: Run all dirty packages have dirty version
         run: bash scripts/check_dirty_pkg_dirty_version.sh
 
