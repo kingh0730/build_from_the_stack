@@ -48,5 +48,6 @@ for dir in $modified_directories; do
         else
             echo "Git branch $done_branch does not exist, OK."
         fi
+
     fi
 done
