@@ -5,14 +5,13 @@ from datasets import load_dataset
 from ._config import CACHE_DIR, SPLIT
 
 
-class TheStackDedup:
+class APPSDataset:
     def __init__(self):
         self._ds = None
 
     def loads(self):
         self._ds = load_dataset(
-            "bigcode/the-stack-dedup",
-            data_dir="data/python",  # Only use Python
+            "codeparrot/apps",
             cache_dir=CACHE_DIR,
             split=SPLIT,
         )
