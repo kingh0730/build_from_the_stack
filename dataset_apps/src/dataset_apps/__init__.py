@@ -40,7 +40,7 @@ def some_stats(ds: Dataset):
         "num_tests",
         "mean_answer_lines",
         "std_answer_lines",
-    ][2:]
+    ][0:]
 
     df = ds.to_pandas()
 
