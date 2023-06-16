@@ -53,8 +53,9 @@ class APPSDecode:
         df["num_answers"] = df["solutions"].apply(
             len,
         )
+
         df["input_output"] = df["input_output"].apply(
-            lambda x: json.loads(x) if x else {"inputs": [], "outputs": []},
+            lambda x: self._decode_input_output(x),
         )
         df["num_tests"] = df["input_output"].apply(
             lambda x: len(x["inputs"]),
@@ -78,3 +79,22 @@ class APPSDecode:
         ds = Dataset.from_pandas(df)
 
         return ds
+
+    def _decode_input_output(self, input_output):
+        default_input_output = {
+            "inputs": [],
+            "outputs": [],
+        }
+
+        json_loads = (
+            json.loads(
+                input_output,
+            )
+            if input_output
+            else default_input_output
+        )
+
+        return json_loads | {
+            "inputs": [json.dumps(input) for input in json_loads["inputs"]],
+            "outputs": [json.dumps(output) for output in json_loads["outputs"]],
+        }
