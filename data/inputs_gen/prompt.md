@@ -7,7 +7,13 @@ Write an input generator in Python that satisfies the following requirements:
 -----Input Requirements-----
 {requirements}
 
------Input Example-----
+-----Input Example 1-----
+{example}
+
+-----Input Example 2-----
+{example}
+
+-----Input Example N-----
 {example}
 
 ## Example
