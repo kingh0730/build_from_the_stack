@@ -1,0 +1,8 @@
+# Inputs Generator
+
+## Examples
+
+```python
+```
+
+---
