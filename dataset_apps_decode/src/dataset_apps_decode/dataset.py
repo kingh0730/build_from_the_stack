@@ -30,3 +30,5 @@ class APPSDecode:
 
     def build(self):
         ds = APPSDataset().dataset()
+
+        return ds
