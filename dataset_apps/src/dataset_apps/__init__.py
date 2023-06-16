@@ -17,7 +17,9 @@ def main():
 
 def some_stats(ds: Dataset):
     all_dfs = []
+
     # for split in ["train", "test"]:
+    split = "train"
 
     # Groups
     # difficulty
