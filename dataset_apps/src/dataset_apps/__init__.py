@@ -78,14 +78,16 @@ def some_stats(ds: Dataset):
     print(agg)
 
     for group_col in ["difficulty", "platform"]:
-        agg = df.groupby(group_col)[properties].agg(["mean", "std", "min", "max"])
+        agg = df.groupby(group_col)[properties].agg(
+            ["mean", "std", "min", "max"],
+        )
         agg["size"] = df.groupby(group_col).size()
         print("-" * 30)
         print(f"Grouped by {group_col}")
         print(agg)
 
     agg = df.groupby(["difficulty", "platform"])[properties].agg(
-        ["mean", "std", "min", "max"]
+        ["mean", "std", "min", "max"],
     )
     agg["size"] = df.groupby(["difficulty", "platform"]).size()
     print("-" * 30)
