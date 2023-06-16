@@ -1,22 +1,32 @@
 # Third-party imports
-from datasets import load_dataset
+from datasets import load_from_disk
 
 # Project imports
-from ._config import CACHE_DIR, SPLIT
+from dataset_apps import APPSDataset
+from ._config import CACHE_DIR
 
 
-class APPSDataset:
-    def __init__(self):
+class APPSDecode:
+    def __init__(self, *, logger):
         self._ds = None
+        self.logger = logger
 
     def loads(self):
-        self._ds = load_dataset(
-            "codeparrot/apps",
-            cache_dir=CACHE_DIR,
-            split=SPLIT,
-        )
+        try:
+            ds = load_from_disk(CACHE_DIR)
+            self.logger.info("Loaded dataset from cache")
+
+        except FileNotFoundError:
+            ds = self.build()
+            ds.save_to_disk(CACHE_DIR)
+            self.logger.info("Saved dataset to cache")
+
+        self._ds = ds
 
     def dataset(self):
         if self._ds is None:
             self.loads()
         return self._ds
+
+    def build(self):
+        ds = APPSDataset().dataset()
