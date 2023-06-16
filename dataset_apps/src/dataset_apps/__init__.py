@@ -1,7 +1,7 @@
+import sys
 import json
 import numpy as np
 from datasets import Dataset
-from collections import Counter
 
 
 from .dataset import APPSDataset
@@ -13,6 +13,9 @@ def main():
 
     apps = APPSDataset()
     ds = apps.dataset()
+
+    # To handle large numbers
+    sys.set_int_max_str_digits(0)
 
     some_stats(ds)
 
