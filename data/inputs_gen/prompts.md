@@ -21,6 +21,7 @@ Write an input generator in Python that satisfies the following requirements:
 ### Problem ID
 
 0
+codeforces
 
 ### Question
 
@@ -157,6 +158,7 @@ This code will generate the desired input with the number of test cases, the num
 ### Problem ID
 
 300
+leetcode
 
 ### Question
 
@@ -237,6 +239,7 @@ This code defines a `generate_input` function that randomly selects values for `
 ### Problem ID
 
 1000
+codechef
 
 ### Question
 
