@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Manually set the last clean commit hash
-last_clean_commit="b3751542bdf4465d459ccd02364f8a29b296bca9"
+last_clean_commit="6c186c7207c049daa2fbdb14cfc65aab104198df"
 
 # Get the last commit hash
 last_commit=$(git rev-parse HEAD)
