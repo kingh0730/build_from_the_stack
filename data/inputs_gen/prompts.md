@@ -16,7 +16,7 @@ Write an input generator in Python that satisfies the following requirements:
 -----Input Example N-----
 {example}
 
-## Example
+## Examples
 
 ### Prompt
 
@@ -89,3 +89,37 @@ print(input_data)
 This code will generate the desired input with the number of test cases, the number of words in each test case, and the actual words themselves randomly generated within the given constraints. You can adjust the `random.randint` ranges according to your requirements if needed.
 
 ---
+
+### Prompt
+
+Write an input generator in Python that satisfies the following requirements:
+
+-----Input Requirements-----
+
+The first line of the input contains one integer $t$ ($1 \le t \le 10^4$) — the number of test cases in the input. Then $t$ test cases follow.
+
+The first line of a test case contains one integer $n$ ($1 \le n \le 2\cdot10^5$) — the number of words in the Polycarp's set. Next $n$ lines contain these words. All of $n$ words aren't empty and contains only characters '0' and '1'. The sum of word lengths doesn't exceed $4\cdot10^6$. All words are different.
+
+Guaranteed, that the sum of $n$ for all test cases in the input doesn't exceed $2\cdot10^5$. Also, guaranteed that the sum of word lengths for all test cases in the input doesn't exceed $4\cdot10^6$.
+
+-----Input Example-----
+4
+4
+0001
+1000
+0011
+0111
+3
+010
+101
+0
+2
+00000
+00001
+4
+01
+001
+0001
+00001
+
+### Answer
