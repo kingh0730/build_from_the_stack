@@ -96,30 +96,33 @@ Write an input generator in Python that satisfies the following requirements:
 
 -----Input Requirements-----
 
-The first line of the input contains one integer $t$ ($1 \le t \le 10^4$) — the number of test cases in the input. Then $t$ test cases follow.
+2 <= x <= 100
+1 <= target <= 2 * 10^8
 
-The first line of a test case contains one integer $n$ ($1 \le n \le 2\cdot10^5$) — the number of words in the Polycarp's set. Next $n$ lines contain these words. All of $n$ words aren't empty and contains only characters '0' and '1'. The sum of word lengths doesn't exceed $4\cdot10^6$. All words are different.
+-----Input Example 1-----
+x = 3, target = 19
 
-Guaranteed, that the sum of $n$ for all test cases in the input doesn't exceed $2\cdot10^5$. Also, guaranteed that the sum of word lengths for all test cases in the input doesn't exceed $4\cdot10^6$.
+-----Input Example 2-----
+x = 5, target = 501
 
------Input Example-----
-4
-4
-0001
-1000
-0011
-0111
-3
-010
-101
-0
-2
-00000
-00001
-4
-01
-001
-0001
-00001
+-----Input Example 3-----
+x = 100, target = 100000000
 
 ### Answer
+
+Here's a Python code snippet that generates input satisfying the given requirements:
+
+```python
+import random
+
+def generate_input():
+    x = random.randint(2, 100)
+    target = random.randint(1, 2 * 10**8)
+    return x, target
+
+# Example usage:
+x, target = generate_input()
+print(f"x = {x}, target = {target}")
+```
+
+This code defines a `generate_input` function that randomly selects values for `x` and `target` within the specified ranges. You can call this function whenever you need to generate a new set of inputs. The examples above demonstrate how to use the `generate_input` function and print the generated values.
