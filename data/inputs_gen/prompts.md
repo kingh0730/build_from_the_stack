@@ -289,3 +289,54 @@ Starting from $0^{th}$ second, at half second seller make a panipuri and put it 
 Similarly proceeding further we will find that no customer have to wait when speed is $2$.
 
 ### Prompt
+
+Write an input generator in Python that satisfies the following requirements:
+
+-----Input Requirements-----
+
+- First line will contain $T$, number of testcases. Then the test cases follow.
+- For each test case, the first line contains $N$ number of customers.
+- Then the second line will contain $N$ space separated integers, $A_1$ to $A_N$, eating time taken by each customer(in seconds).
+
+- $0 < T \leq 100$
+- $0 < N \leq 10^6$
+- $0 < A_i \leq 10^9$
+- Sum of $N$ over all test cases does not exceed $10^6$
+
+-----Input Example 1-----
+2
+4
+2 4 6 3
+5
+2 3 4 6 5
+
+### Answer
+
+Sure! Here's a Python code snippet that generates input satisfying the given requirements:
+
+```python
+import random
+
+def generate_input():
+    T = random.randint(1, 100)
+    testcases = []
+    
+    for _ in range(T):
+        N = random.randint(1, 10**6)
+        A = [random.randint(1, 10**9) for _ in range(N)]
+        testcase = f"{N}\n{' '.join(map(str, A))}"
+        testcases.append(testcase)
+    
+    input_str = f"{T}\n{'\n'.join(testcases)}"
+    return input_str
+
+print(generate_input())
+```
+
+This code generates a random number of test cases `T` between 1 and 100. For each test case, it generates a random number of customers `N` between 1 and 10^6, and then randomly assigns eating times `A` between 1 and 10^9 for each customer. The generated input is returned as a string.
+
+Please note that each time you run the code, it will generate a different set of random inputs.
+
+### Comments
+
+- Ok
