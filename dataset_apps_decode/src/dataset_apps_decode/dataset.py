@@ -3,7 +3,7 @@ import json
 
 # Third-party imports
 import numpy as np
-from datasets import load_from_disk
+from datasets import load_from_disk, Dataset
 
 # Project imports
 from dataset_apps import APPSDataset
@@ -63,5 +63,8 @@ class APPSDecode:
             platforms0.isin(["open", "www"])
         ].str[1]
         df["platform"] = platforms0
+
+        # To huggingface dataset
+        ds = Dataset.from_pandas(df)
 
         return ds
