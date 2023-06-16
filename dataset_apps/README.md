@@ -3,6 +3,6 @@
 ## Versions
 
 - 0.0.1
-  - The Stack: using the first 10%
+  - <https://huggingface.co/datasets/codeparrot/apps>
 
 ## Methods

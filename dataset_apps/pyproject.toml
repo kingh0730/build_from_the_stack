@@ -10,7 +10,7 @@
 # There are some restrictions on what makes a valid project name
 # specification here:
 # https://packaging.python.org/specifications/core-metadata/#name
-name = "dataset_the_stack_dedup" # Required
+name = "dataset_apps" # Required
 
 # Versions should comply with PEP 440:
 # https://www.python.org/dev/peps/pep-0440/
@@ -140,7 +140,7 @@ test = ["coverage", "tox"]
 # The following would provide a command line executable called `sample`
 # which executes the function `main` from this package when invoked.
 [project.scripts] # Optional
-dataset_the_stack_dedup = "dataset_the_stack_dedup:main"
+dataset_apps = "dataset_apps:main"
 
 # This is configuration specific to the `setuptools` build backend.
 # If you are using a different build backend, you will need to change this.
