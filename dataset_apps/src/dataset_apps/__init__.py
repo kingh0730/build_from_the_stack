@@ -1,6 +1,6 @@
 import json
 import numpy as np
-from datasets import load_dataset
+from datasets import Dataset
 from collections import Counter
 
 
@@ -15,7 +15,7 @@ def main():
     ds = apps.dataset()
 
 
-def some_stats():
+def some_stats(ds: Dataset):
     all_dfs = []
     # for split in ["train", "test"]:
 
@@ -34,19 +34,27 @@ def some_stats():
         "mean_answer_lines",
         "std_answer_lines",
     ][2:]
-    df = load_dataset("codeparrot/apps", split=split).to_pandas()
-    df["solutions"] = df["solutions"].apply(lambda x: json.loads(x) if x else [])
-    df["num_answers"] = df["solutions"].apply(len)
-    df["input_output"] = df["input_output"].apply(
-        lambda x: json.loads(x) if x else {"inputs": [], "outputs": []}
+
+    df = ds.to_pandas()
+
+    df["solutions"] = df["solutions"].apply(
+        lambda x: json.loads(x) if x else [],
     )
-    df["num_tests"] = df["input_output"].apply(lambda x: len(x["inputs"]))
+    df["num_answers"] = df["solutions"].apply(
+        len,
+    )
+    df["input_output"] = df["input_output"].apply(
+        lambda x: json.loads(x) if x else {"inputs": [], "outputs": []},
+    )
+    df["num_tests"] = df["input_output"].apply(
+        lambda x: len(x["inputs"]),
+    )
 
     df["mean_answer_lines"] = df["solutions"].apply(
-        lambda x: np.mean([len(soln.split("\n")) for soln in x])
+        lambda x: np.mean([len(soln.split("\n")) for soln in x]),
     )
     df["std_answer_lines"] = df["solutions"].apply(
-        lambda x: np.std([len(soln.split("\n")) for soln in x])
+        lambda x: np.std([len(soln.split("\n")) for soln in x]),
     )
 
     platforms = df["url"].str.split(".")
