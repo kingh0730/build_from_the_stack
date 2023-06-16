@@ -1,7 +1,4 @@
-import sys
-import json
-import numpy as np
-from datasets import Dataset
+import logging
 
 
 from .dataset import APPSDecode
@@ -11,7 +8,15 @@ def main():
     """Entry point for the application script"""
     print("Call your main application code here")
 
-    apps = APPSDecode()
+    logging.basicConfig(
+        level=logging.INFO,
+    )
+
+    logger = logging.getLogger(__name__)
+
+    apps = APPSDecode(
+        logger=logger,
+    )
 
     global ds
     ds = apps.dataset()
