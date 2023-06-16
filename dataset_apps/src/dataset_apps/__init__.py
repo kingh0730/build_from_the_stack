@@ -14,6 +14,8 @@ def main():
     apps = APPSDataset()
     ds = apps.dataset()
 
+    some_stats(ds)
+
 
 def some_stats(ds: Dataset):
     all_dfs = []
