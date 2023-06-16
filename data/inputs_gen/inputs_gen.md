@@ -1,4 +1,4 @@
-# Inputs Generator
+# Inputs Generation
 
 ## Examples
 
@@ -84,6 +84,37 @@ for _ in range(int(input())):
                     need -= 1
                 i += 1
             print(*ans)
+```
+
+### Input Generator
+
+```python
+import random
+
+def generate_inputs(t_max, n_max):
+    t = random.randint(1, t_max)
+    inputs = [str(t)]
+
+    for _ in range(t):
+        n = random.randint(1, n_max)
+        inputs.append(str(n))
+
+        words = set()
+        while len(words) < n:
+            word_length = random.randint(1, min(10, (4 * 10**6) // n))
+            word = ''.join(random.choices('01', k=word_length))
+            words.add(word)
+
+        inputs.extend(words)
+
+    return '\n'.join(inputs)
+
+
+# Example usage
+t_max = 4
+n_max = 5
+inputs = generate_inputs(t_max, n_max)
+print(inputs)
 ```
 
 ---
