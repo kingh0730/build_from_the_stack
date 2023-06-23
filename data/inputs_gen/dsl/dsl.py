@@ -5,14 +5,14 @@ e.g. if you want to change distribution of random numbers
 import random
 
 
-def record(arg):
+def record(arg: int | float | str):
     """
     Records the argument
     """
     print(arg)
 
 
-def integer(min_inclusive, max_inclusive):
+def integer(min_inclusive: int, max_inclusive: int):
     """
     Returns a random integer between min and max
     """
@@ -22,7 +22,7 @@ def integer(min_inclusive, max_inclusive):
     )
 
 
-def float(min_inclusive, max_inclusive):
+def float(min_inclusive: float, max_inclusive: float):
     """
     Returns a random float between min and max
     """
@@ -32,14 +32,14 @@ def float(min_inclusive, max_inclusive):
     )
 
 
-def positive_integer(max_inclusive):
+def positive_integer(max_inclusive: int):
     """
     Returns a random integer between 1 and max
     """
     return integer(1, max_inclusive)
 
 
-def negative_integer(min_inclusive):
+def negative_integer(min_inclusive: int):
     """
     Returns a random integer between min and -1
     """
