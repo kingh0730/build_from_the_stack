@@ -18,7 +18,7 @@ def integer(min_inclusive, max_inclusive):
     """
     return random.randint(
         min_inclusive,
-        min(max_inclusive, 5),
+        min(max_inclusive, min_inclusive + 4),
     )
 
 
@@ -28,7 +28,7 @@ def float(min_inclusive, max_inclusive):
     """
     return random.uniform(
         min_inclusive,
-        min(max_inclusive, 5),
+        min(max_inclusive, min_inclusive + 4),
     )
 
 
