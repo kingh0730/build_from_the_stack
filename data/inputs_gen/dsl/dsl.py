@@ -8,6 +8,7 @@ import random
 def record(arg: int | float | str):
     """
     Records the argument
+    TODO explain
     """
     print(arg)
 
@@ -55,6 +56,6 @@ def enum(*args):
 
 def concat_str(args: list):
     """
-    Returns a string concatenation of all args
+    Returns a string concatenation of all elements in args
     """
     return "".join(args)
