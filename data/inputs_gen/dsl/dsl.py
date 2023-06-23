@@ -5,6 +5,13 @@ e.g. if you want to change distribution of random numbers
 import random
 
 
+def record(arg):
+    """
+    Records the argument
+    """
+    print(arg)
+
+
 def integer(min, max):
     """
     Returns a random integer between min and max
