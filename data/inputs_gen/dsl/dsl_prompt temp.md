@@ -3,8 +3,9 @@
 ## Template
 
 Your task is to write an input generator for a competitive programming question.
-The input generator should produce a single valid input for the question.
-The input generator can only use control flow statements and the following functions:
+Your input generator should produce a single valid input for the question.
+Your input generator can only use following functions, and
+    if, else, for, while, break, continue, and return statements:
 
 ```python
 {functions}
