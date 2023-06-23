@@ -32,6 +32,20 @@ def float(min_inclusive, max_inclusive):
     )
 
 
+def positive_integer(max_inclusive):
+    """
+    Returns a random integer between 1 and max
+    """
+    return integer(1, max_inclusive)
+
+
+def negative_integer(min_inclusive):
+    """
+    Returns a random integer between min and -1
+    """
+    return integer(min_inclusive, -1)
+
+
 def enum(*args):
     """
     Returns a random element from the list of args
