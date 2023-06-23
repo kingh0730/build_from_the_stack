@@ -53,7 +53,7 @@ def enum(*args):
     return random.choice(args)
 
 
-def concat_str(*args):
+def concat_str(args: list):
     """
     Returns a string concatenation of all args
     """
