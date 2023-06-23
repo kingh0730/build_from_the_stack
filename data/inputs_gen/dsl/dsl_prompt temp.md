@@ -4,11 +4,53 @@
 
 Your task is to write an input generator for a competitive programming question.
 Your input generator should produce a single valid input for the question.
-Your input generator can only use following functions, and
-    if, else, for, while, break, continue, and return statements:
+Your input generator can only use following functions,
+    the built-in `min`, `max`, `abs`, `pow`, `sum`, `len`, `range`,
+    `sorted`, `reversed`, `enumerate` functions,
+    and `if`, `else`, `for`, `break`, `continue` statements,
+    and everything else is NOT allowed.
 
 ```python
-{functions}
+def record(arg: int | float | str):
+    """
+    Records the argument
+    """
+
+
+def gen_int(min_inclusive: int, max_inclusive: int):
+    """
+    Returns a random integer between min and max
+    """
+
+
+def gen_float(min_inclusive: float, max_inclusive: float):
+    """
+    Returns a random float between min and max
+    """
+
+
+def gen_pos_int(max_inclusive: int):
+    """
+    Returns a random integer between 1 and max
+    """
+
+
+def gen_neg_int(min_inclusive: int):
+    """
+    Returns a random integer between min and -1
+    """
+
+
+def enum(*args):
+    """
+    Returns a random element from the list of args
+    """
+
+
+def concat_str(args: list):
+    """
+    Returns a string concatenation of all elements in args
+    """
 ```
 
 Examples of a valid input generator for a question:
