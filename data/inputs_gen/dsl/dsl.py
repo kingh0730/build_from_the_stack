@@ -85,3 +85,10 @@ def requires_collect_all(index_name: str, condition: function):
     For each value that index_name takes, condition must be true
     """
     raise NotImplementedError
+
+
+def all_elements_unique(args: list):
+    """
+    Returns true if all elements in args are unique
+    """
+    return len(set(args)) == len(args)
