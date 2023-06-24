@@ -239,6 +239,21 @@ def generate_input():
         record(line)
 ```
 
+Example 3:
+
+```text
+QUESTION
+
+
+```
+
+```python
+INPUT_GENERATOR
+
+
+def generate_input():
+```
+
 Now, write an input generator for the following competitive programming question:
 
 ```text
