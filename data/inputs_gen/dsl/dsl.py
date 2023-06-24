@@ -59,8 +59,15 @@ def enum(*args):
     return random.choice(args)
 
 
-def concat_str(args: list):
+def to_str_then_concat(args: list):
     """
     Returns a string concatenation of all elements in args
     """
-    return "".join(args)
+    return "".join(map(str, args))
+
+
+def to_str_then_concat_with_space(args: list):
+    """
+    Returns a string concatenation of all elements in args
+    """
+    return " ".join(map(str, args))
