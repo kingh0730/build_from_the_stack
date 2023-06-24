@@ -1,10 +1,10 @@
-from data.inputs_gen.dsl.dsl import (
+from dsl import (
     gen_pos_int,
     record,
     gen_int,
     to_str_then_concat_with_space,
+    INPUT_GENERATOR,
 )
-from dsl import INPUT_GENERATOR
 
 
 INPUT_GENERATOR
