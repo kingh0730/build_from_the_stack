@@ -19,10 +19,13 @@ def generate_input():
         record(n)
 
         a = [gen_pos_int(100) for _ in range(n)]
-        record(to_str_then_concat_with_space(a))
-
         b = [gen_pos_int(100) for _ in range(n)]
-        record(to_str_then_concat_with_space(b))
-
         c = [gen_pos_int(100) for _ in range(n)]
-        record(to_str_then_concat_with_space(c))
+
+        a_line = to_str_then_concat_with_space(a)
+        b_line = to_str_then_concat_with_space(b)
+        c_line = to_str_then_concat_with_space(c)
+
+        record(a_line)
+        record(b_line)
+        record(c_line)
