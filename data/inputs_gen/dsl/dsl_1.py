@@ -1,4 +1,4 @@
-from dsl import gen_pos_int, record, INPUT_GENERATOR
+from dsl import gen_pos_int, record, INPUT_GENERATOR, to_str_then_concat_with_space
 
 
 INPUT_GENERATOR
@@ -12,6 +12,4 @@ def generate_input():
         ni = gen_pos_int(10**18)
         mi = gen_pos_int(10**18)
         ki = gen_pos_int(10**18)
-        record(ni)
-        record(mi)
-        record(ki)
+        record(to_str_then_concat_with_space([ni, mi, ki]))
