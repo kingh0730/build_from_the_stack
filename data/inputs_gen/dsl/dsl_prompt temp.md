@@ -60,6 +60,24 @@ def to_str_then_concat_with_space(args: list):
     """
     Returns a string concatenation using space as separator of all elements in args
     """
+
+
+def requires_for_each(index_name: str, condition: function):
+    """
+    For each value that index_name takes, condition must be true
+    """
+
+
+def requires_collect_all(index_name: str, condition: function):
+    """
+    For each value that index_name takes, condition must be true
+    """
+
+
+def all_elements_unique(args: list):
+    """
+    Returns true if all elements in args are unique
+    """
 ```
 
 Examples of a valid input generator for a question:
