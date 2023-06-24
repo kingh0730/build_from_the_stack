@@ -4,11 +4,13 @@
 
 Your task is to write an input generator for a competitive programming question.
 Your input generator should produce a single valid input for the question.
-Your input generator can only use following functions,
+Your input generator can only use:
     the built-in `min`, `max`, `abs`, `pow`, `sum`, `len`, `range`,
     `sorted`, `reversed`, `enumerate` functions,
-    and `if`, `else`, `for`, `break`, `continue` statements,
-    and everything else is NOT allowed.
+    `if`, `else`, `for`, `break`, `continue` statements,
+    list comprehension,
+    and the functions defined below (implementations are hidden).
+    Everything else is NOT allowed!!!
 
 ```python
 def record(arg: int | float | str):
