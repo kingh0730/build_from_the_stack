@@ -71,3 +71,10 @@ def to_str_then_concat_with_space(args: list):
     Returns a string concatenation using space as separator of all elements in args
     """
     return " ".join(map(str, args))
+
+
+def requires_for_each(index_name: str, condition: function):
+    """
+    For each value that index_name takes, condition must be true
+    """
+    raise NotImplementedError
