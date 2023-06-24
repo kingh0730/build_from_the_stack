@@ -5,6 +5,11 @@ e.g. if you want to change distribution of random numbers
 import random
 
 
+INPUT_GENERATOR = """
+Marker for the input generator
+"""
+
+
 def record(arg: int | float | str):
     """
     Records the argument
