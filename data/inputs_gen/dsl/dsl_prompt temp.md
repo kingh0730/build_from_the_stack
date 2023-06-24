@@ -218,46 +218,40 @@ Now, write an input generator for the following competitive programming question
 QUESTION
 
 
-Mikhail walks on a Cartesian plane. He starts at the point $(0, 0)$, and in one move he can go to any of eight adjacent points. For example, if Mikhail is currently at the point $(0, 0)$, he can go to any of the following points in one move:   $(1, 0)$;  $(1, 1)$;  $(0, 1)$;  $(-1, 1)$;  $(-1, 0)$;  $(-1, -1)$;  $(0, -1)$;  $(1, -1)$.
+You have $n$ barrels lined up in a row, numbered from left to right from one. Initially, the $i$-th barrel contains $a_i$ liters of water.
 
-If Mikhail goes from the point $(x1, y1)$ to the point $(x2, y2)$ in one move, and $x1 \ne x2$ and $y1 \ne y2$, then such a move is called a diagonal move.
+You can pour water from one barrel to another. In one act of pouring, you can choose two different barrels $x$ and $y$ (the $x$-th barrel shouldn't be empty) and pour any possible amount of water from barrel $x$ to barrel $y$ (possibly, all water). You may assume that barrels have infinite capacity, so you can pour any amount of water in each of them.
 
-Mikhail has $q$ queries. For the $i$-th query Mikhail's target is to go to the point $(n_i, m_i)$ from the point $(0, 0)$ in exactly $k_i$ moves. Among all possible movements he want to choose one with the maximum number of diagonal moves. Your task is to find the maximum number of diagonal moves or find that it is impossible to go from the point $(0, 0)$ to the point $(n_i, m_i)$ in $k_i$ moves.
+Calculate the maximum possible difference between the maximum and the minimum amount of water in the barrels, if you can pour water at most $k$ times.
 
-Note that Mikhail can visit any point any number of times (even the destination point!).
+Some examples:   if you have four barrels, each containing $5$ liters of water, and $k = 1$, you may pour $5$ liters from the second barrel into the fourth, so the amounts of water in the barrels are $[5, 0, 5, 10]$, and the difference between the maximum and the minimum is $10$;  if all barrels are empty, you can't make any operation, so the difference between the maximum and the minimum amount is still $0$.
 
 
 -----Input-----
 
-The first line of the input contains one integer $q$ ($1 \le q \le 10^4$) — the number of queries.
+The first line contains one integer $t$ ($1 \le t \le 1000$) — the number of test cases.
 
-Then $q$ lines follow. The $i$-th of these $q$ lines contains three integers $n_i$, $m_i$ and $k_i$ ($1 \le n_i, m_i, k_i \le 10^{18}$) — $x$-coordinate of the destination point of the query, $y$-coordinate of the destination point of the query and the number of moves in the query, correspondingly.
+The first line of each test case contains two integers $n$ and $k$ ($1 \le k < n \le 2 \cdot 10^5$) — the number of barrels and the number of pourings you can make.
+
+The second line contains $n$ integers $a_1, a_2, \dots, a_n$ ($0 \le a_i \le 10^{9}$), where $a_i$ is the initial amount of water the $i$-th barrel has.
+
+It's guaranteed that the total sum of $n$ over test cases doesn't exceed $2 \cdot 10^5$.
 
 
 -----Output-----
 
-Print $q$ integers. The $i$-th integer should be equal to -1 if Mikhail cannot go from the point $(0, 0)$ to the point $(n_i, m_i)$ in exactly $k_i$ moves described above. Otherwise the $i$-th integer should be equal to the the maximum number of diagonal moves among all possible movements.
+For each test case, print the maximum possible difference between the maximum and the minimum amount of water in the barrels, if you can pour water at most $k$ times.
 
 
 -----Example-----
 Input
-3
-2 2 3
-4 3 7
-10 1 9
+2
+4 1
+5 5 5 5
+3 2
+0 0 0
 
 Output
-1
-6
--1
-
-
-
------Note-----
-
-One of the possible answers to the first test case: $(0, 0) \to (1, 0) \to (1, 1) \to (2, 2)$.
-
-One of the possible answers to the second test case: $(0, 0) \to (0, 1) \to (1, 2) \to (0, 3) \to (1, 4) \to (2, 3) \to (3, 2) \to (4, 3)$.
-
-In the third test case Mikhail cannot reach the point $(10, 1)$ in 9 moves.
+10
+0
 ```
