@@ -207,7 +207,9 @@ def generate_input():
         ni = gen_pos_int(10**18)
         mi = gen_pos_int(10**18)
         ki = gen_pos_int(10**18)
-        record(to_str_then_concat_with_space([ni, mi, ki]))
+
+        line = to_str_then_concat_with_space([ni, mi, ki])
+        record(line)
 ```
 
 Now, write an input generator for the following competitive programming question:
