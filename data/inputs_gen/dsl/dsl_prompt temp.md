@@ -145,93 +145,46 @@ Now, write an input generator for the following competitive programming question
 
 ```text
 QUESTION
-You are given three sequences: $a_1, a_2, \ldots, a_n$; $b_1, b_2, \ldots, b_n$; $c_1, c_2, \ldots, c_n$.
+Mikhail walks on a Cartesian plane. He starts at the point $(0, 0)$, and in one move he can go to any of eight adjacent points. For example, if Mikhail is currently at the point $(0, 0)$, he can go to any of the following points in one move:   $(1, 0)$;  $(1, 1)$;  $(0, 1)$;  $(-1, 1)$;  $(-1, 0)$;  $(-1, -1)$;  $(0, -1)$;  $(1, -1)$.
 
-For each $i$, $a_i \neq b_i$, $a_i \neq c_i$, $b_i \neq c_i$.
+If Mikhail goes from the point $(x1, y1)$ to the point $(x2, y2)$ in one move, and $x1 \ne x2$ and $y1 \ne y2$, then such a move is called a diagonal move.
 
-Find a sequence $p_1, p_2, \ldots, p_n$, that satisfy the following conditions:
+Mikhail has $q$ queries. For the $i$-th query Mikhail's target is to go to the point $(n_i, m_i)$ from the point $(0, 0)$ in exactly $k_i$ moves. Among all possible movements he want to choose one with the maximum number of diagonal moves. Your task is to find the maximum number of diagonal moves or find that it is impossible to go from the point $(0, 0)$ to the point $(n_i, m_i)$ in $k_i$ moves.
 
-
-
- $p_i \in \{a_i, b_i, c_i\}$
-
- $p_i \neq p_{(i \mod n) + 1}$.
-
-In other words, for each element, you need to choose one of the three possible values, such that no two adjacent elements (where we consider elements $i,i+1$ adjacent for $i<n$ and also elements $1$ and $n$) will have equal value.
-
-It can be proved that in the given constraints solution always exists. You don't need to minimize/maximize anything, you need to find any proper sequence.
+Note that Mikhail can visit any point any number of times (even the destination point!).
 
 
 -----Input-----
 
-The first line of input contains one integer $t$ ($1 \leq t \leq 100$): the number of test cases.
+The first line of the input contains one integer $q$ ($1 \le q \le 10^4$) — the number of queries.
 
-The first line of each test case contains one integer $n$ ($3 \leq n \leq 100$): the number of elements in the given sequences.
-
-The second line contains $n$ integers $a_1, a_2, \ldots, a_n$ ($1 \leq a_i \leq 100$).
-
-The third line contains $n$ integers $b_1, b_2, \ldots, b_n$ ($1 \leq b_i \leq 100$).
-
-The fourth line contains $n$ integers $c_1, c_2, \ldots, c_n$ ($1 \leq c_i \leq 100$).
-
-It is guaranteed that $a_i \neq b_i$, $a_i \neq c_i$, $b_i \neq c_i$ for all $i$.
+Then $q$ lines follow. The $i$-th of these $q$ lines contains three integers $n_i$, $m_i$ and $k_i$ ($1 \le n_i, m_i, k_i \le 10^{18}$) — $x$-coordinate of the destination point of the query, $y$-coordinate of the destination point of the query and the number of moves in the query, correspondingly.
 
 
 -----Output-----
 
-For each test case, print $n$ integers: $p_1, p_2, \ldots, p_n$ ($p_i \in \{a_i, b_i, c_i\}$, $p_i \neq p_{i \mod n + 1}$).
-
-If there are several solutions, you can print any.
+Print $q$ integers. The $i$-th integer should be equal to -1 if Mikhail cannot go from the point $(0, 0)$ to the point $(n_i, m_i)$ in exactly $k_i$ moves described above. Otherwise the $i$-th integer should be equal to the the maximum number of diagonal moves among all possible movements.
 
 
 -----Example-----
 Input
-5
 3
-1 1 1
-2 2 2
-3 3 3
-4
-1 2 1 2
-2 1 2 1
-3 4 3 4
-7
-1 3 3 1 1 1 1
-2 4 4 3 2 2 4
-4 2 2 2 4 4 2
-3
-1 2 1
-2 3 3
-3 1 2
-10
-1 1 1 2 2 2 3 3 3 1
-2 2 2 3 3 3 1 1 1 2
-3 3 3 1 1 1 2 2 2 3
+2 2 3
+4 3 7
+10 1 9
 
 Output
-1 2 3
-1 2 1 2
-1 3 4 3 2 4 2
-1 3 2
-1 2 3 1 2 3 1 2 3 2
+1
+6
+-1
 
 
 
 -----Note-----
 
-In the first test case $p = [1, 2, 3]$.
+One of the possible answers to the first test case: $(0, 0) \to (1, 0) \to (1, 1) \to (2, 2)$.
 
-It is a correct answer, because:
+One of the possible answers to the second test case: $(0, 0) \to (0, 1) \to (1, 2) \to (0, 3) \to (1, 4) \to (2, 3) \to (3, 2) \to (4, 3)$.
 
-  $p_1 = 1 = a_1$, $p_2 = 2 = b_2$, $p_3 = 3 = c_3$  $p_1 \neq p_2 $, $p_2 \neq p_3 $, $p_3 \neq p_1$
-
-All possible correct answers to this test case are: $[1, 2, 3]$, $[1, 3, 2]$, $[2, 1, 3]$, $[2, 3, 1]$, $[3, 1, 2]$, $[3, 2, 1]$.
-
-In the second test case $p = [1, 2, 1, 2]$.
-
-In this sequence $p_1 = a_1$, $p_2 = a_2$, $p_3 = a_3$, $p_4 = a_4$. Also we can see, that no two adjacent elements of the sequence are equal.
-
-In the third test case $p = [1, 3, 4, 3, 2, 4, 2]$.
-
-In this sequence $p_1 = a_1$, $p_2 = a_2$, $p_3 = b_3$, $p_4 = b_4$, $p_5 = b_5$, $p_6 = c_6$, $p_7 = c_7$. Also we can see, that no two adjacent elements of the sequence are equal.
+In the third test case Mikhail cannot reach the point $(10, 1)$ in 9 moves.
 ```
