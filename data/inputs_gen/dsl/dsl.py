@@ -78,3 +78,10 @@ def requires_for_each(index_name: str, condition: function):
     For each value that index_name takes, condition must be true
     """
     raise NotImplementedError
+
+
+def requires_collect_all(index_name: str, condition: function):
+    """
+    For each value that index_name takes, condition must be true
+    """
+    raise NotImplementedError
