@@ -1,4 +1,4 @@
-from dsl import gen_pos_int, enum, concat_str, record
+from dsl import gen_pos_int, enum, record, to_str_then_concat
 
 
 def generate_input():
@@ -11,7 +11,7 @@ def generate_input():
 
         for _ in range(n):
             word_length = gen_pos_int(4 * 10**6 // n)
-            word = concat_str(
+            word = to_str_then_concat(
                 [enum("0", "1") for _ in range(word_length)],
             )
             record(word)
