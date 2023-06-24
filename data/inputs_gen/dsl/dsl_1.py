@@ -1,4 +1,9 @@
-from dsl import gen_pos_int, record, INPUT_GENERATOR, to_str_then_concat_with_space
+from dsl import (
+    gen_pos_int,
+    record,
+    INPUT_GENERATOR,
+    to_str_then_concat_with_space,
+)
 
 
 INPUT_GENERATOR

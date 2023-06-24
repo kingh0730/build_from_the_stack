@@ -1,4 +1,9 @@
-from dsl import gen_pos_int, enum, record, to_str_then_concat
+from dsl import (
+    gen_pos_int,
+    enum,
+    record,
+    to_str_then_concat,
+)
 
 
 def generate_input():
