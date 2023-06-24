@@ -65,6 +65,8 @@ Example 1:
 
 ```text
 QUESTION
+
+
 Polycarp has $n$ different binary words. A word called binary if it contains only characters '0' and '1'. For example, these words are binary: "0001", "11", "0" and "0011100".
 
 Polycarp wants to offer his set of $n$ binary words to play a game "words". In this game, players name words and each next word (starting from the second) must start with the last character of the previous word. The first word can be any. For example, these sequence of words can be named during the game: "0101", "1", "10", "00", "00001".
@@ -125,6 +127,8 @@ Output
 
 ```python
 INPUT_GENERATOR
+
+
 def generate_input():
     t = gen_pos_int(10**4)
     record(t)
@@ -145,6 +149,8 @@ Now, write an input generator for the following competitive programming question
 
 ```text
 QUESTION
+
+
 Mikhail walks on a Cartesian plane. He starts at the point $(0, 0)$, and in one move he can go to any of eight adjacent points. For example, if Mikhail is currently at the point $(0, 0)$, he can go to any of the following points in one move:   $(1, 0)$;  $(1, 1)$;  $(0, 1)$;  $(-1, 1)$;  $(-1, 0)$;  $(-1, -1)$;  $(0, -1)$;  $(1, -1)$.
 
 If Mikhail goes from the point $(x1, y1)$ to the point $(x2, y2)$ in one move, and $x1 \ne x2$ and $y1 \ne y2$, then such a move is called a diagonal move.
