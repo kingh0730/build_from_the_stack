@@ -78,4 +78,17 @@ class APPSDecodeRun:
             num_proc=NUM_PROC,
         )
 
+        only_codeforces = only_codeforces.map(
+            lambda x: {
+                "answers_agree": [
+                    len(
+                        set(answers),
+                    )
+                    == 1
+                    for answers in x["answers"]
+                ],
+            },
+            num_proc=NUM_PROC,
+        )
+
         return only_codeforces
