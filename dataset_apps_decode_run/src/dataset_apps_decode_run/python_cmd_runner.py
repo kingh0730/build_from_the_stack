@@ -23,7 +23,7 @@ def python_cmd(cmd: str, input_text: str) -> str:
 
     # Check for any errors
     if process.returncode != 0:
-        raise Exception(f"Error executing Python command: {error}")
+        return f"Error executing Python command: {error}"
 
     # Print the output
     return output
