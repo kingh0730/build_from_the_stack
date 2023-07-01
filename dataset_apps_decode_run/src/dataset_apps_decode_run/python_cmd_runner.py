@@ -1,7 +1,7 @@
 import subprocess
 
 
-def python_cmd(cmd, input_text) -> str:
+def python_cmd(cmd: str, input_text: str) -> str:
     # Define the command to run your Python file
     command = ["python", "-c", cmd]
 
