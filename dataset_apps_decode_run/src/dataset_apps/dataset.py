@@ -5,7 +5,7 @@ from datasets import load_dataset
 from ._config import CACHE_DIR
 
 
-class APPSDatasetDecodeRun:
+class APPSDecodeRun:
     def __init__(self):
         self._ds = None
 
