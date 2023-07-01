@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Exist on error
+set -e
+
 # Get the current directory
 current_dir=$(pwd)
 
