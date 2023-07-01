@@ -7,8 +7,9 @@ from dataset_apps_decode import APPSDecode
 
 
 class APPSDecodeRun:
-    def __init__(self):
+    def __init__(self, *, logger):
         self._ds = None
+        self.logger = logger
 
     def loads(self):
         try:
@@ -28,6 +29,6 @@ class APPSDecodeRun:
         return self._ds
 
     def build(self):
-        apps_decode = APPSDecode().dataset()
+        apps_decode = APPSDecode(logger=self.logger).dataset()
 
         return apps_decode
