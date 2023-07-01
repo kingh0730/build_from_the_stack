@@ -36,7 +36,7 @@ class APPSDecodeRun:
         apps_decode = APPSDecode(logger=self.logger).dataset()
 
         only_codeforces = apps_decode.filter(
-            lambda x: x["platform"] == "codeforces" and x["problem_id"] < 10,
+            lambda x: x["platform"] == "codeforces",
             num_proc=NUM_PROC,
         )
 
