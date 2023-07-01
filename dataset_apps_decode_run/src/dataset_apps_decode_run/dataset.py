@@ -54,7 +54,7 @@ class APPSDecodeRun:
 
         only_codeforces = only_codeforces.map(
             lambda x: {
-                "outputs_solutions": [
+                "answers": [
                     [
                         python_cmd(
                             solution,
@@ -63,6 +63,16 @@ class APPSDecodeRun:
                         for solution in x["solutions"]
                     ]
                     for input in x["inputs_str"]
+                ],
+            },
+            num_proc=NUM_PROC,
+        )
+
+        only_codeforces = only_codeforces.map(
+            lambda x: {
+                "answers_eq_outputs": [
+                    [answer == output for answer in x["answers"][i]]
+                    for i, output in enumerate(x["outputs_str"])
                 ],
             },
             num_proc=NUM_PROC,
