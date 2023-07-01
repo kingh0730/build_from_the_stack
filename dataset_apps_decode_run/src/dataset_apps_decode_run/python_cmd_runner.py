@@ -1,7 +1,7 @@
 import subprocess
 
 
-def python_cmd(cmd, input_text):
+def python_cmd(cmd, input_text) -> str:
     # Define the command to run your Python file
     command = ["python", "-c", cmd]
 
@@ -21,9 +21,9 @@ def python_cmd(cmd, input_text):
     # Get the output from the subprocess
     output, error = process.communicate()
 
-    # Print the output
-    print(output)
-
     # Check for any errors
     if process.returncode != 0:
-        print(f"Error: {error}")
+        raise Exception(f"Error executing Python command: {error}")
+
+    # Print the output
+    return output
