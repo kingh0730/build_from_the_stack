@@ -29,34 +29,34 @@ QUESTION_2_MD = _dsl_dir + "question_2.md"
 DSL_2_PY = _dsl_dir + "dsl_2.py"
 
 
-with open(DSL_PROMPT_1_INTRO_MD, "r") as f:
+with open(DSL_PROMPT_1_INTRO_MD, "r", encoding="utf-8") as f:
     DSL_PROMPT_1_INTRO = f.read()
 
-with open(DSL_PROMPT_2_EXAMPLES_INTRO_MD, "r") as f:
+with open(DSL_PROMPT_2_EXAMPLES_INTRO_MD, "r", encoding="utf-8") as f:
     DSL_PROMPT_2_EXAMPLES_INTRO = f.read()
 
-with open(DSL_PROMPT_3_NOW_MD, "r") as f:
+with open(DSL_PROMPT_3_NOW_MD, "r", encoding="utf-8") as f:
     DSL_PROMPT_3_NOW = f.read()
 
-with open(DSL_PY, "r") as f:
+with open(DSL_PY, "r", encoding="utf-8") as f:
     DSL = f.read()
 
-with open(QUESTION_0_MD, "r") as f:
+with open(QUESTION_0_MD, "r", encoding="utf-8") as f:
     QUESTION_0 = f.read()
 
-with open(DSL_0_PY, "r") as f:
+with open(DSL_0_PY, "r", encoding="utf-8") as f:
     DSL_0 = f.read()
 
-with open(QUESTION_1_MD, "r") as f:
+with open(QUESTION_1_MD, "r", encoding="utf-8") as f:
     QUESTION_1 = f.read()
 
-with open(DSL_1_PY, "r") as f:
+with open(DSL_1_PY, "r", encoding="utf-8") as f:
     DSL_1 = f.read()
 
-with open(QUESTION_2_MD, "r") as f:
+with open(QUESTION_2_MD, "r", encoding="utf-8") as f:
     QUESTION_2 = f.read()
 
-with open(DSL_2_PY, "r") as f:
+with open(DSL_2_PY, "r", encoding="utf-8") as f:
     DSL_2 = f.read()
 
 
