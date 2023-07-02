@@ -82,11 +82,11 @@ Example 1:
 Example 2:
 
 ```md
-{QUESTION_1}
+{QUESTION_2}
 ```
 
 ```python
-{DSL_1}
+{DSL_2}
 ```
 """
 
