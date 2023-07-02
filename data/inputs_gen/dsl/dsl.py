@@ -13,7 +13,7 @@ Marker for the input generator
 def record(arg: int | float | str):
     """
     Records the argument
-    TODO explain
+    FIXME explain more
     """
     print(arg)
 
