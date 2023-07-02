@@ -32,6 +32,7 @@ def dsl_template():
 def dsl_chain():
     chat = ChatOpenAI(
         temperature=0,
+        model="gpt-4-32k",
         openai_api_key=OPENAI_API_KEY,
     )
 
