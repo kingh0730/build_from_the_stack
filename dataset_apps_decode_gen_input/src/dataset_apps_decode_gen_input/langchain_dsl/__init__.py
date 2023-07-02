@@ -92,4 +92,8 @@ Example 2:
 
 HUMAN_TEMPLATE = f"""
 {DSL_PROMPT_3_NOW}
+
+```md
+{{question}}
+```
 """
