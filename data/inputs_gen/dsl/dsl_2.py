@@ -4,7 +4,7 @@ from dsl import (
     record,
     gen_int,
     to_str_then_concat_with_space,
-    requires_for_each,
+    all_elements_unique,
 )
 
 
@@ -19,18 +19,8 @@ def generate_input():
         n = gen_int(3, 100)
         record(n)
 
-        with requires_for_each(
-            "i",
-            lambda a, b, c: a != b and b != c and c != a,
-        ):
-            a = [gen_pos_int(100) for i in range(n)]
-            b = [gen_pos_int(100) for i in range(n)]
-            c = [gen_pos_int(100) for i in range(n)]
-
-        a_line = to_str_then_concat_with_space(a)
-        b_line = to_str_then_concat_with_space(b)
-        c_line = to_str_then_concat_with_space(c)
-
-        record(a_line)
-        record(b_line)
-        record(c_line)
+        for _ in range(3):
+            sequence = [gen_pos_int(100) for _ in range(n)]
+            while not all_elements_unique(sequence):
+                sequence = [gen_pos_int(100) for _ in range(n)]
+            record(to_str_then_concat_with_space(sequence))
