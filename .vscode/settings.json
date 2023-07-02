@@ -11,11 +11,13 @@
         "codeforces",
         "codeparrot",
         "dedup",
+        "dotenv",
         "funcs",
         "huggingface",
         "kingh",
         "langchain",
         "Naman",
+        "openai",
         "tqdm"
     ]
 }
