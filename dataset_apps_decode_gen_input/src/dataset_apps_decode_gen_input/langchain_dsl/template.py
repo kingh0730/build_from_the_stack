@@ -14,7 +14,7 @@ import openai
 from . import OPENAI_API_KEY
 
 
-def i_love_programming_template():
+def dsl_template():
     template = "You are a helpful assistant that translates {input_language} to {output_language}."
     system_message_prompt = SystemMessagePromptTemplate.from_template(template)
     human_template = "{text}"
