@@ -108,7 +108,7 @@ dependencies = [ # Optional
   "ipython==8.14.0",
 
   # Workspace dependencies
-  "dataset_apps==0.0.2",
+  "dataset_apps_decode==0.0.1",
 ]
 
 # List additional groups of dependencies here (e.g. development
