@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # Manually set the last clean commit hash
 last_clean_commit="79fb8bc861da1506717f3ca58c7210bd52aa8caa"
 
