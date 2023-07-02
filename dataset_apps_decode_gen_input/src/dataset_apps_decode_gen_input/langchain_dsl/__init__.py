@@ -24,6 +24,9 @@ DSL_0_PY = _dsl_dir + "dsl_0.py"
 QUESTION_1_MD = _dsl_dir + "question_1.md"
 DSL_1_PY = _dsl_dir + "dsl_1.py"
 
+QUESTION_2_MD = _dsl_dir + "question_2.md"
+DSL_2_PY = _dsl_dir + "dsl_2.py"
+
 
 with open(DSL_PROMPT_1_INTRO_MD, "r") as f:
     DSL_PROMPT_1_INTRO = f.read()
