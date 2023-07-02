@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -e
-
 # Get the current directory
 current_dir=$(pwd)
 
