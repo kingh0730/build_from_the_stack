@@ -3,11 +3,11 @@ from dsl import (
     record,
     gen_int,
     to_str_then_concat_with_space,
-    INPUT_GENERATOR,
+    GENERATE_INPUT,
 )
 
 
-INPUT_GENERATOR
+GENERATE_INPUT
 
 
 def generate_input():

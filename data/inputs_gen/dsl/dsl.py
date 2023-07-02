@@ -5,8 +5,8 @@ e.g. if you want to change distribution of random numbers
 import random
 
 
-INPUT_GENERATOR = """
-Marker for the input generator
+GENERATE_INPUT = """
+Marker for the function that generates a random valid input
 """
 
 

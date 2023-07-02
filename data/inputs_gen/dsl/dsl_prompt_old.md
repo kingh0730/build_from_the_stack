@@ -20,7 +20,7 @@ QUESTION
 ```
 
 ```text
-INPUT_GENERATOR
+GENERATE_INPUT
 {example_question1}
 ```
 
@@ -32,7 +32,7 @@ QUESTION
 ```
 
 ```text
-INPUT_GENERATOR
+GENERATE_INPUT
 {example_question2}
 ```
 

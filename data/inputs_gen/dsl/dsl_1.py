@@ -1,12 +1,12 @@
 from dsl import (
     gen_pos_int,
     record,
-    INPUT_GENERATOR,
+    GENERATE_INPUT,
     to_str_then_concat_with_space,
 )
 
 
-INPUT_GENERATOR
+GENERATE_INPUT
 
 
 def generate_input():

@@ -147,7 +147,7 @@ Output
 ```
 
 ```python
-INPUT_GENERATOR
+GENERATE_INPUT
 
 
 def generate_input():
@@ -223,7 +223,7 @@ In the third test case Mikhail cannot reach the point $(10, 1)$ in 9 moves.
 ```
 
 ```python
-INPUT_GENERATOR
+GENERATE_INPUT
 
 
 def generate_input():
@@ -337,7 +337,7 @@ In this sequence $p_1 = a_1$, $p_2 = a_2$, $p_3 = b_3$, $p_4 = b_4$, $p_5 = b_5$
 ```
 
 ```python
-INPUT_GENERATOR
+GENERATE_INPUT
 
 
 def generate_input():

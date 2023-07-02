@@ -1,5 +1,5 @@
 from dsl import (
-    INPUT_GENERATOR,
+    GENERATE_INPUT,
     gen_pos_int,
     record,
     gen_int,
@@ -8,7 +8,7 @@ from dsl import (
 )
 
 
-INPUT_GENERATOR
+GENERATE_INPUT
 
 
 def generate_input():
