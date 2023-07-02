@@ -15,6 +15,7 @@ _dsl_dir = (
 
 DSL_PROMPT_1_INTRO_MD = _dsl_dir + "dsl_prompt_1_intro.md"
 DSL_PROMPT_2_EXAMPLES_INTRO_MD = _dsl_dir + "dsl_prompt_2_examples_intro.md"
+DSL_PROMPT_3_NOW_MD = _dsl_dir + "dsl_prompt_3_now.md"
 
 DSL_PY = _dsl_dir + "dsl.py"
 
@@ -33,6 +34,9 @@ with open(DSL_PROMPT_1_INTRO_MD, "r") as f:
 
 with open(DSL_PROMPT_2_EXAMPLES_INTRO_MD, "r") as f:
     DSL_PROMPT_2_EXAMPLES_INTRO = f.read()
+
+with open(DSL_PROMPT_3_NOW_MD, "r") as f:
+    DSL_PROMPT_3_NOW = f.read()
 
 with open(DSL_PY, "r") as f:
     DSL = f.read()
@@ -56,7 +60,7 @@ with open(DSL_2_PY, "r") as f:
     DSL_2 = f.read()
 
 
-TEMPLATE = f"""
+SYSTEM_TEMPLATE = f"""
 {DSL_PROMPT_1_INTRO}
 
 ```python
@@ -84,4 +88,8 @@ Example 2:
 ```python
 {DSL_1}
 ```
+"""
+
+HUMAN_TEMPLATE = f"""
+{DSL_PROMPT_3_NOW}
 """
