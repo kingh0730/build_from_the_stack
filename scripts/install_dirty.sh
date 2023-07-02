@@ -29,6 +29,9 @@ for dir in $modified_directories; do
             echo "Git branch $done_branch exists, NOT_OK!"
         else
             echo "Git branch $done_branch does not exist, OK."
+
+            # Install the package
+            python -m pip install -e "$dir[dev,test]"
         fi
     fi
 done
