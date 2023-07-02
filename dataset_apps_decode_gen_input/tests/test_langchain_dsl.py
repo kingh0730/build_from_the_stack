@@ -3,11 +3,11 @@ from dataset_apps_decode_gen_input.langchain_dsl.i_love_programming import (
     i_love_programming_template,
     i_love_programming_chain,
 )
-
 from dataset_apps_decode_gen_input.langchain_dsl import (
     DSL_PROMPT_1_INTRO,
     DSL,
 )
+from dataset_apps_decode_gen_input.langchain_dsl.template import dsl_chain
 
 
 def test_i_love_programming():
@@ -34,3 +34,9 @@ def test_DSL_PROMPT_1_INTRO():
 def test_DSL():
     print(DSL)
     assert type(DSL) == str
+
+
+def test_dsl_chain():
+    ans = dsl_chain()
+    print(ans)
+    assert type(ans) == str
