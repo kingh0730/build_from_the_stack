@@ -58,6 +58,21 @@ TEMPLATE = f"""
 
 Example 1:
 
+```text
+{QUESTION_0}
+```
 
+```python
+{DSL_0}
+```
 
+Example 2:
+
+```text
+{QUESTION_1}
+```
+
+```python
+{DSL_1}
+```
 """
