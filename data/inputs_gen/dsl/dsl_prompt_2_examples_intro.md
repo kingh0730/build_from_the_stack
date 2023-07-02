@@ -1,1 +1,1 @@
-Examples of a valid input generator for a question:
+Examples of a valid function that generates a valid input for a question:
