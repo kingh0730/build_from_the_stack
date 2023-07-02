@@ -1,5 +1,3 @@
-# Intro
-
 Your task is to write an input generator for a competitive programming question.
 Your input generator should produce a single valid input for the question.
 Your input generator can only use:
