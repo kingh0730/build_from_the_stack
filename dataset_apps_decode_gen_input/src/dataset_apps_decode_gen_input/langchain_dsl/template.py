@@ -11,7 +11,15 @@ from langchain.prompts.chat import (
     HumanMessagePromptTemplate,
 )
 import openai
-from . import OPENAI_API_KEY, SYSTEM_TEMPLATE, HUMAN_TEMPLATE, QUESTION_2, DSL_2
+from . import (
+    OPENAI_API_KEY,
+    SYSTEM_TEMPLATE,
+    HUMAN_TEMPLATE,
+    QUESTION_2,
+    DSL_2,
+    QUESTION_1,
+    DSL_1,
+)
 
 
 def dsl_template():
@@ -36,7 +44,7 @@ def dsl_chain():
         openai_api_key=OPENAI_API_KEY,
     )
 
-    system_message_prompt = SystemMessagePromptTemplate.from_template(SYSTEM_TEMPLATE)
+    system_message_prompt = SystemMessage(content=SYSTEM_TEMPLATE)
     human_message_prompt = HumanMessagePromptTemplate.from_template(HUMAN_TEMPLATE)
 
     chat_prompt = ChatPromptTemplate.from_messages(
@@ -45,7 +53,7 @@ def dsl_chain():
 
     chain = LLMChain(llm=chat, prompt=chat_prompt)
     ans = chain.run(
-        question=QUESTION_2,
+        question=QUESTION_1,
     )
 
     return ans
