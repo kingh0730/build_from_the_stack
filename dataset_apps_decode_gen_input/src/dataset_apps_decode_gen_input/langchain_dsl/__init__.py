@@ -49,6 +49,12 @@ with open(QUESTION_1_MD, "r") as f:
 with open(DSL_1_PY, "r") as f:
     DSL_1 = f.read()
 
+with open(QUESTION_2_MD, "r") as f:
+    QUESTION_2 = f.read()
+
+with open(DSL_2_PY, "r") as f:
+    DSL_2 = f.read()
+
 
 TEMPLATE = f"""
 {DSL_PROMPT_1_INTRO}
