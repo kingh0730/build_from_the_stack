@@ -6,6 +6,7 @@ from dataset_apps_decode_gen_input.langchain_dsl.i_love_programming import (
 
 from dataset_apps_decode_gen_input.langchain_dsl import (
     DSL_PROMPT_1_INTRO,
+    DSL,
 )
 
 
@@ -28,3 +29,8 @@ def test_i_love_programming_chain():
 def test_DSL_PROMPT_1_INTRO():
     print(DSL_PROMPT_1_INTRO)
     assert type(DSL_PROMPT_1_INTRO) == str
+
+
+def test_DSL():
+    print(DSL)
+    assert type(DSL) == str
