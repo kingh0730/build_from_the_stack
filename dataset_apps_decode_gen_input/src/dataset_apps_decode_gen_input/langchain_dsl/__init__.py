@@ -58,7 +58,7 @@ TEMPLATE = f"""
 
 Example 1:
 
-```text
+```md
 {QUESTION_0}
 ```
 
@@ -68,7 +68,7 @@ Example 1:
 
 Example 2:
 
-```text
+```md
 {QUESTION_1}
 ```
 

@@ -11,13 +11,12 @@ from langchain.prompts.chat import (
     HumanMessagePromptTemplate,
 )
 import openai
-from . import OPENAI_API_KEY
+from . import OPENAI_API_KEY, TEMPLATE
 
 
 def dsl_template():
-    template = "You are a helpful assistant that translates {input_language} to {output_language}."
-    system_message_prompt = SystemMessagePromptTemplate.from_template(template)
-    human_template = "{text}"
+    system_message_prompt = SystemMessagePromptTemplate.from_template(TEMPLATE)
+    human_template = "{question}"
     human_message_prompt = HumanMessagePromptTemplate.from_template(human_template)
 
     chat_prompt = ChatPromptTemplate.from_messages(
@@ -25,7 +24,9 @@ def dsl_template():
     )
 
     msg = chat_prompt.format_messages(
-        input_language="English", output_language="French", text="I love programming."
+        input_language="English",
+        output_language="French",
+        text="I love programming.",
     )
 
     return msg
