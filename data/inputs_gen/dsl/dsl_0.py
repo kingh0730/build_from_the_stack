@@ -5,7 +5,11 @@ from dsl import (
     to_str_then_concat,
     requires_collect_all,
     all_elements_unique,
+    INPUT_GENERATOR,
 )
+
+
+INPUT_GENERATOR
 
 
 def generate_input():
