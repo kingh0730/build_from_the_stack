@@ -108,6 +108,7 @@ dependencies = [ # Optional
   "ipython==8.14.0",
   "langchain[all]==0.0.39",
   "openai==0.27.8",
+  "python-dotenv==1.0.0",
 
   # Workspace dependencies
   "dataset_apps_decode==0.0.1",
