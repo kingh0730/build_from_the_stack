@@ -27,3 +27,24 @@ def dsl_template():
     )
 
     return msg
+
+
+def dsl_chain():
+    chat = ChatOpenAI(
+        temperature=0,
+        openai_api_key=OPENAI_API_KEY,
+    )
+
+    system_message_prompt = SystemMessagePromptTemplate.from_template(SYSTEM_TEMPLATE)
+    human_message_prompt = HumanMessagePromptTemplate.from_template(HUMAN_TEMPLATE)
+
+    chat_prompt = ChatPromptTemplate.from_messages(
+        [system_message_prompt, human_message_prompt]
+    )
+
+    chain = LLMChain(llm=chat, prompt=chat_prompt)
+    ans = chain.run(
+        question=QUESTION_2,
+    )
+
+    return ans
