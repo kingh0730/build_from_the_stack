@@ -34,15 +34,6 @@ class APPSDecodeGenInput:
         return self._ds
 
     def build(self):
-        original_max_digits = sys.get_int_max_str_digits()
-
-        sys.set_int_max_str_digits(0)
-        result = self._build()
-        sys.set_int_max_str_digits(original_max_digits)
-
-        return result
-
-    def _build(self):
         ds = APPSDecode().dataset()
 
         return ds
