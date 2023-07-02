@@ -29,6 +29,10 @@ for dir in $modified_directories; do
         # Check if the git branch exists
         if git ls-remote --exit-code --heads origin $done_branch; then
             echo "Git branch $done_branch exists, NOT_OK!"
+
+            # Raise an error
+            exit 1
+
         else
             echo "Git branch $done_branch does not exist, OK."
 
