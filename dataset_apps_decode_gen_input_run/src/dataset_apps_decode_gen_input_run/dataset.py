@@ -15,7 +15,7 @@ DSL_GEN_BASE_DIR = "./data/inputs_gen/dsl/gen/"
 
 
 GENERATE_INPUTS_COUNT = 10
-GENERATE_ONE_INPUT_TRY_HARD_LIMIT = 100
+GENERATE_ONE_INPUT_TRY_HARD_LIMIT = 1000
 
 # ! Should not override this name
 GENERATE_INPUT_FUNC_NAME = "generate_input"
@@ -79,10 +79,29 @@ class APPSDecodeGenInputRun:
                 "new_inputs: gpt-3.5-turbo": json.dumps(
                     new_inputs_all_gpt_3[row["problem_id"]],
                 ),
+                "new_inputs_codeforces: gpt-4": self.input_to_codeforces_format(
+                    new_inputs_all_gpt_4[row["problem_id"]],
+                ),
+                "new_inputs_codeforces: gpt-3.5-turbo": self.input_to_codeforces_format(
+                    new_inputs_all_gpt_3[row["problem_id"]],
+                ),
             },
         )
 
         return ds
+
+    def input_to_codeforces_format(self, input):
+        result = []
+
+        for x in input:
+            if isinstance(x, list):
+                line = " ".join(map(str, x))
+                result.append(line)
+
+            else:
+                result.append(str(x))
+
+        return "\n".join(result)
 
     def generate_one_input_try_hard(self, generate_input: str, file_name: str):
         for _ in range(GENERATE_ONE_INPUT_TRY_HARD_LIMIT):
