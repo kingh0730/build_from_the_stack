@@ -40,7 +40,7 @@ class APPSDecodeGenInput:
         ).dataset()
 
         ds = ds.filter(
-            lambda x: 2 < x["problem_id"] < 5,
+            lambda x: 2 < x["problem_id"] < 25,
         )
 
         ds = ds.map(
