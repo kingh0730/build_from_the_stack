@@ -35,7 +35,13 @@ class APPSDecodeGenInput:
         return self._ds
 
     def build(self):
-        ds = APPSDecode().dataset()
+        ds = APPSDecode(
+            logger=self.logger,
+        ).dataset()
+
+        ds = ds.filter(
+            lambda x: 2 < x["problem_id"] < 5,
+        )
 
         ds.map(
             lambda x: {
@@ -51,3 +57,16 @@ class APPSDecodeGenInput:
         )
 
         return ds
+
+    def use_dsl_chain(self, question: str, *, model: str):
+        try:
+            result = dsl_chain(
+                question=question,
+                model=model,
+            )
+
+        except Exception as e:
+            print(e)
+            result = None
+
+        return result
