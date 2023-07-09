@@ -3,7 +3,7 @@
 set -e
 
 # Manually set the last clean commit hash
-last_clean_commit="5a4d6e09973d1ec4b7486b5e0c9fdb5b337bc02d"
+last_clean_commit="76246dc2180e9c1b1edd650748fc43e935450247"
 
 # Get the last commit hash
 last_commit=$(git rev-parse HEAD)
