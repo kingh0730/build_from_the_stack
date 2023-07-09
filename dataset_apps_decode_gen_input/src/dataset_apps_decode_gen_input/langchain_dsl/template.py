@@ -22,7 +22,7 @@ from . import (
 )
 
 
-def dsl_template():
+def build_dsl_template():
     system_message_prompt = SystemMessage(content=SYSTEM_TEMPLATE)
     human_message_prompt = HumanMessagePromptTemplate.from_template(HUMAN_TEMPLATE)
 
@@ -30,6 +30,11 @@ def dsl_template():
         [system_message_prompt, human_message_prompt]
     )
 
+    return chat_prompt
+
+
+def dsl_template():
+    chat_prompt = build_dsl_template()
     msg = chat_prompt.format_messages(
         question=QUESTION_2,
     )
@@ -44,12 +49,7 @@ def dsl_chain():
         openai_api_key=OPENAI_API_KEY,
     )
 
-    system_message_prompt = SystemMessage(content=SYSTEM_TEMPLATE)
-    human_message_prompt = HumanMessagePromptTemplate.from_template(HUMAN_TEMPLATE)
-
-    chat_prompt = ChatPromptTemplate.from_messages(
-        [system_message_prompt, human_message_prompt]
-    )
+    chat_prompt = build_dsl_template()
 
     chain = LLMChain(
         llm=chat,
