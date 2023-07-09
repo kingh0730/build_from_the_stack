@@ -31,7 +31,11 @@ def test_DSL():
 def test_dsl_template():
     ans = dsl_template()
     print(ans)
+    print(ans[0].content)
+    print(ans[1].content)
     assert type(ans) == list
+    assert type(ans[0].content) == str
+    assert type(ans[1].content) == str
 
 
 # Too expensive
