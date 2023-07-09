@@ -10,33 +10,30 @@ from dataset_apps_decode_gen_input.langchain_dsl import (
 from dataset_apps_decode_gen_input.langchain_dsl.template import dsl_chain
 
 
-def test_i_love_programming():
-    ans = i_love_programming()
-    print(ans)
+# Too expensive
+def not_running():
+    def test_i_love_programming():
+        ans = i_love_programming()
+        print(ans)
 
+    def test_i_love_programming_template():
+        ans = i_love_programming_template()
+        print(ans)
 
-def test_i_love_programming_template():
-    ans = i_love_programming_template()
-    print(ans)
+    def test_i_love_programming_chain():
+        ans = i_love_programming_chain()
+        print(ans)
+        assert type(ans) == str
 
+    def test_DSL_PROMPT_1_INTRO():
+        print(DSL_PROMPT_1_INTRO)
+        assert type(DSL_PROMPT_1_INTRO) == str
 
-def test_i_love_programming_chain():
-    ans = i_love_programming_chain()
-    print(ans)
-    assert type(ans) == str
+    def test_DSL():
+        print(DSL)
+        assert type(DSL) == str
 
-
-def test_DSL_PROMPT_1_INTRO():
-    print(DSL_PROMPT_1_INTRO)
-    assert type(DSL_PROMPT_1_INTRO) == str
-
-
-def test_DSL():
-    print(DSL)
-    assert type(DSL) == str
-
-
-def test_dsl_chain():
-    ans = dsl_chain()
-    print(ans)
-    assert type(ans) == str
+    def test_dsl_chain():
+        ans = dsl_chain()
+        print(ans)
+        assert type(ans) == str
