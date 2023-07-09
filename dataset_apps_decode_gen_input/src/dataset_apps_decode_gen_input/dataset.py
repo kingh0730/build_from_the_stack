@@ -1,6 +1,7 @@
 # Stdlib imports
 import sys
 import json
+from .langchain_dsl.template import dsl_chain
 
 # Third-party imports
 import numpy as np
@@ -35,5 +36,18 @@ class APPSDecodeGenInput:
 
     def build(self):
         ds = APPSDecode().dataset()
+
+        ds.map(
+            lambda x: {
+                "solution: gpt-4": dsl_chain(
+                    x["question"],
+                    model="gpt-4",
+                ),
+                "solution: gpt-3.5-turbo": dsl_chain(
+                    x["question"],
+                    model="gpt-3.5-turbo",
+                ),
+            }
+        )
 
         return ds
