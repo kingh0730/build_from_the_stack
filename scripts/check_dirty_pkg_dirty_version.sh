@@ -3,7 +3,7 @@
 set -e
 
 # Manually set the last clean commit hash
-last_clean_commit="79fb8bc861da1506717f3ca58c7210bd52aa8caa"
+last_clean_commit="e62cc5bb05f4e66de4ebc4d0c70f12e7055eb1ef"
 
 # Get the last commit hash
 last_commit=$(git rev-parse HEAD)
@@ -19,6 +19,9 @@ modified_directories=$(
 # Print the modified directories
 for dir in $modified_directories; do
     echo "$dir has been modified."
+
+    # Get the top-level directory of the dir variable
+    dir=$(echo "$dir" | awk -F'/' '{print $1}')
 
     if [ -f "$dir/pyproject.toml" ]; then
         # Extract the version from pyproject.toml
