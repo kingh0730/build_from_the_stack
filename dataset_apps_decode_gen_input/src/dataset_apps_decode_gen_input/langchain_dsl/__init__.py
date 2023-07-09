@@ -50,21 +50,21 @@ with open(QUESTION_0_MD, "r", encoding="utf-8") as f:
 
 with open(DSL_0_PY, "r", encoding="utf-8") as f:
     content = f.read()
-    DSL_0 = content.split(GENERATE_INPUT_MARKER)[1]
+    DSL_0 = content.split(GENERATE_INPUT_MARKER)[-1]
 
 with open(QUESTION_1_MD, "r", encoding="utf-8") as f:
     QUESTION_1 = f.read()
 
 with open(DSL_1_PY, "r", encoding="utf-8") as f:
     content = f.read()
-    DSL_1 = content.split(GENERATE_INPUT_MARKER)[1]
+    DSL_1 = content.split(GENERATE_INPUT_MARKER)[-1]
 
 with open(QUESTION_2_MD, "r", encoding="utf-8") as f:
     QUESTION_2 = f.read()
 
 with open(DSL_2_PY, "r", encoding="utf-8") as f:
     content = f.read()
-    DSL_2 = content.split(GENERATE_INPUT_MARKER)[1]
+    DSL_2 = content.split(GENERATE_INPUT_MARKER)[-1]
 
 
 SYSTEM_TEMPLATE = f"""
