@@ -51,6 +51,6 @@ def not_running():
         assert type(ans) == str
 
     def test_dsl_chain():
-        ans = dsl_chain()
+        ans = dsl_chain(question=QUESTION_2)
         print(ans)
         assert type(ans) == str
