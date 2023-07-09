@@ -43,7 +43,7 @@ class APPSDecodeGenInput:
             lambda x: 2 < x["problem_id"] < 5,
         )
 
-        ds.map(
+        ds = ds.map(
             lambda x: {
                 "solution: gpt-4": dsl_chain(
                     x["question"],
