@@ -7,7 +7,10 @@ from dataset_apps_decode_gen_input.langchain_dsl import (
     DSL_PROMPT_1_INTRO,
     DSL,
 )
-from dataset_apps_decode_gen_input.langchain_dsl.template import dsl_chain
+from dataset_apps_decode_gen_input.langchain_dsl.template import (
+    dsl_chain,
+    dsl_template,
+)
 
 
 def test_i_love_programming_template():
@@ -23,6 +26,12 @@ def test_DSL_PROMPT_1_INTRO():
 def test_DSL():
     print(DSL)
     assert type(DSL) == str
+
+
+def test_dsl_template():
+    ans = dsl_template()
+    print(ans)
+    assert type(ans) == str
 
 
 # Too expensive
