@@ -28,11 +28,13 @@ def generate_input() -> list:
         for _ in range(n):
             word_len = gen_pos_int(4 * 10**6)
             list_word_len_this_test_case.append(word_len)
+            list_word_len_all_test_cases.append(word_len)
 
             word = to_str_then_concat(
                 [choice(["0", "1"]) for _ in range(word_len)],
             )
             res.append(word)
+            list_word.append(word)
 
         assert sum(list_word_len_this_test_case) <= 4 * 10**6
         assert all_elements_unique(list_word)
