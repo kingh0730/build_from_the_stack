@@ -10,20 +10,14 @@ def gen_int(min_inclusive: int, max_inclusive: int):
     """
     Returns a random integer between min (inclusive) and max (inclusive)
     """
-    return random.randint(
-        min_inclusive,
-        min(max_inclusive, min_inclusive + 4),
-    )
+    return random.randint(min_inclusive, max_inclusive)
 
 
 def gen_float(min_inclusive: float, max_inclusive: float):
     """
     Returns a random float between min (inclusive) and max (inclusive)
     """
-    return random.uniform(
-        min_inclusive,
-        min(max_inclusive, min_inclusive + 4),
-    )
+    return random.uniform(min_inclusive, max_inclusive)
 
 
 def gen_pos_int(max_inclusive: int):
@@ -40,9 +34,9 @@ def gen_neg_int(min_inclusive: int):
     return gen_int(min_inclusive, -1)
 
 
-def enum(*args):
+def choice(args):
     """
-    Returns a random element from the list of args
+    Chooses a random element from args
     """
     return random.choice(args)
 
