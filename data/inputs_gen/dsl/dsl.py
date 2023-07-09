@@ -65,20 +65,6 @@ def to_str_then_concat_with_space(args: list):
     return " ".join(map(str, args))
 
 
-def requires_for_each(index_name: str, condition: function):
-    """
-    For each value that index_name takes, condition must be true
-    """
-    raise NotImplementedError
-
-
-def requires_collect_all(index_name: str, condition: function):
-    """
-    For each value that index_name takes, condition must be true
-    """
-    raise NotImplementedError
-
-
 def all_elements_unique(args: list):
     """
     Returns true if all elements in args are unique
