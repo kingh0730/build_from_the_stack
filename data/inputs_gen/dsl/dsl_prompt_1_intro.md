@@ -6,5 +6,5 @@ Your function can only use:
     `if`, `else`, `for`, `break`, `continue` statements,
     `and`, `or`, `not` operators, and arithmetic operators,
     list comprehension,
-    and the functions defined below (implementations are hidden).
+    and the functions defined below.
 Everything else is NOT allowed!!!
