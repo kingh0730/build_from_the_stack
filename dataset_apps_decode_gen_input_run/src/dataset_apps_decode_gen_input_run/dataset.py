@@ -79,18 +79,23 @@ class APPSDecodeGenInputRun:
                 "new_inputs: gpt-3.5-turbo": json.dumps(
                     new_inputs_all_gpt_3[row["problem_id"]],
                 ),
-                "new_inputs_codeforces: gpt-4": self.input_to_codeforces_format(
-                    new_inputs_all_gpt_4[row["problem_id"]],
-                ),
-                "new_inputs_codeforces: gpt-3.5-turbo": self.input_to_codeforces_format(
-                    new_inputs_all_gpt_3[row["problem_id"]],
-                ),
+                "new_inputs_codeforces: gpt-4": [
+                    self.input_to_codeforces_format(input)
+                    for input in new_inputs_all_gpt_4[row["problem_id"]]
+                ],
+                "new_inputs_codeforces: gpt-3.5-turbo": [
+                    self.input_to_codeforces_format(input)
+                    for input in new_inputs_all_gpt_3[row["problem_id"]]
+                ],
             },
         )
 
         return ds
 
-    def input_to_codeforces_format(self, input):
+    def input_to_codeforces_format(self, input: list | None) -> str | None:
+        if input is None:
+            return None
+
         result = []
 
         for x in input:
@@ -103,7 +108,9 @@ class APPSDecodeGenInputRun:
 
         return "\n".join(result)
 
-    def generate_one_input_try_hard(self, generate_input: str, file_name: str):
+    def generate_one_input_try_hard(
+        self, generate_input: str, file_name: str
+    ) -> list | None:
         for _ in range(GENERATE_ONE_INPUT_TRY_HARD_LIMIT):
             once_or_none = self.generate_input_once_or_none(
                 generate_input,
@@ -113,7 +120,9 @@ class APPSDecodeGenInputRun:
             if once_or_none is not None:
                 return once_or_none
 
-    def generate_input_once_or_none(self, generate_input: str, file_name: str):
+    def generate_input_once_or_none(
+        self, generate_input: str, file_name: str
+    ) -> list | None:
         try:
             loc = {}
             exec(generate_input, None, loc)
