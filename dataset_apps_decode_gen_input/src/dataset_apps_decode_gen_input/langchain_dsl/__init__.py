@@ -89,16 +89,6 @@ Example 1:
 Example 2:
 
 ```md
-{QUESTION_1}
-```
-
-```python
-{DSL_1}
-```
-
-Example 3:
-
-```md
 {QUESTION_2}
 ```
 
