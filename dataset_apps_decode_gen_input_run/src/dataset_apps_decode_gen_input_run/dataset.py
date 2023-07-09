@@ -36,7 +36,12 @@ class APPSDecodeGenInputRun:
             logger=self.logger,
         ).dataset()
 
-        for row in ds:
+        self.save_dsl_py(ds)
+
+        return ds
+
+    def save_dsl_py(self, apps_decode_gen_input):
+        for row in apps_decode_gen_input:
             generate_input_gpt_4 = self.process_dsl_py(row["solution: gpt-4"])
             generate_input_gpt_3 = self.process_dsl_py(row["solution: gpt-3.5-turbo"])
 
@@ -47,8 +52,6 @@ class APPSDecodeGenInputRun:
 
             with open(f"{DSL_GEN_BASE_DIR}/gpt-3.5-turbo/{file_name}", "w") as f:
                 f.write(generate_input_gpt_3)
-
-        return ds
 
     def process_dsl_py(self, dsl_py: str):
         if dsl_py.startswith("```python"):
