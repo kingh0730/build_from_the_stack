@@ -12,6 +12,9 @@ from dataset_apps_decode_gen_input_run.dsl_impl_copy_to_run import *
 DSL_GEN_BASE_DIR = "./data/inputs_gen/dsl/gen/"
 
 
+GENERATE_INPUTS_COUNT = 10
+GENERATE_ONE_INPUT_TRY_HARD_LIMIT = 100
+
 # ! Should not override this name
 GENERATE_INPUT_FUNC_NAME = "generate_input"
 
@@ -56,13 +59,13 @@ class APPSDecodeGenInputRun:
 
             new_inputs = [
                 self.generate_one_input_try_hard(generate_input_gpt_4, file_name)
-                for _ in range(10)
+                for _ in range(GENERATE_INPUTS_COUNT)
             ]
             new_inputs_all_gpt_4[row["problem_id"]] = new_inputs
 
             new_inputs = [
                 self.generate_one_input_try_hard(generate_input_gpt_3, file_name)
-                for _ in range(10)
+                for _ in range(GENERATE_INPUTS_COUNT)
             ]
             new_inputs_all_gpt_3[row["problem_id"]] = new_inputs
 
@@ -76,7 +79,7 @@ class APPSDecodeGenInputRun:
         return ds
 
     def generate_one_input_try_hard(self, generate_input: str, file_name: str):
-        for _ in range(100):
+        for _ in range(GENERATE_ONE_INPUT_TRY_HARD_LIMIT):
             once_or_none = self.generate_input_once_or_none(
                 generate_input,
                 file_name,
