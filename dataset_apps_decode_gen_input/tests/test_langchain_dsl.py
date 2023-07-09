@@ -5,6 +5,7 @@ from dataset_apps_decode_gen_input.langchain_dsl.i_love_programming import (
 )
 from dataset_apps_decode_gen_input.langchain_dsl import (
     DSL_PROMPT_1_INTRO,
+    QUESTION_2,
     DSL,
 )
 from dataset_apps_decode_gen_input.langchain_dsl.template import (
@@ -29,7 +30,7 @@ def test_DSL():
 
 
 def test_dsl_template():
-    ans = dsl_template()
+    ans = dsl_template(question=QUESTION_2)
     print(ans)
     print(ans[0].content)
     print(ans[1].content)
