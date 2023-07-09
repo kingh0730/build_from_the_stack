@@ -23,7 +23,7 @@ from . import (
 
 
 def dsl_template():
-    system_message_prompt = SystemMessagePromptTemplate.from_template(SYSTEM_TEMPLATE)
+    system_message_prompt = SystemMessage(content=SYSTEM_TEMPLATE)
     human_message_prompt = HumanMessagePromptTemplate.from_template(HUMAN_TEMPLATE)
 
     chat_prompt = ChatPromptTemplate.from_messages(

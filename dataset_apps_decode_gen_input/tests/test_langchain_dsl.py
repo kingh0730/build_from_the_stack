@@ -31,7 +31,7 @@ def test_DSL():
 def test_dsl_template():
     ans = dsl_template()
     print(ans)
-    assert type(ans) == str
+    assert type(ans) == list
 
 
 # Too expensive
