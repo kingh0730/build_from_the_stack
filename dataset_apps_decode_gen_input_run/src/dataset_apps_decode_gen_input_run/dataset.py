@@ -54,11 +54,10 @@ class APPSDecodeGenInputRun:
 
             try:
                 loc = {}
-                exec(generate_input_gpt_4, __locals=loc)
+                exec(generate_input_gpt_4, None, loc)
                 new_input = loc[GENERATE_INPUT_FUNC_NAME]()
-                print(new_input)
-            except Exception:
-                print(f"Failed to execute {file_name}")
+            except Exception as e:
+                print(f"Failed to execute {file_name} due to {e}")
 
         return ds
 
