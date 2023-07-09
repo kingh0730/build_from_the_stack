@@ -41,10 +41,9 @@ def dsl_template(question: str):
     return msg
 
 
-def dsl_chain(question: str):
+def dsl_chain(question: str, *, model: str):
     chat = ChatOpenAI(
-        temperature=0,
-        model="gpt-4",
+        model=model,
         openai_api_key=OPENAI_API_KEY,
     )
 
