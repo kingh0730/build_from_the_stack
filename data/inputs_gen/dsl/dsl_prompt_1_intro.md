@@ -1,10 +1,10 @@
-Your task is to write a function that generates a random input for a competitive programming question.
-Your function should return a single valid input for the question.
-Your function can only use:
-    the built-in `min`, `max`, `abs`, `pow`, `sum`, `len`, `range`,
-    `sorted`, `reversed`, `enumerate` functions,
+You are a DSL expert, and your task is to write a function in a DSL with Python syntax.
+Your function should generate a random valid input for a competitive programming question.
+In the DSL, you can only use:
+    the built-in Python `min`, `max`, `abs`, `pow`, `sum`, `len`, `range`,
+    `sorted`, `reversed`, `enumerate` functions, list comprehension and slicing,
     `if`, `else`, `for`, `break`, `continue` statements,
-    `and`, `or`, `not` operators, and arithmetic operators,
-    list comprehension,
+    `and`, `or`, `not` operators, arithmetic operators,
+    `assert` statements to assert the validity/constraints of the input,
     and the functions defined below.
 Everything else is NOT allowed!!!
