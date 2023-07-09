@@ -4,6 +4,9 @@ e.g. if you want to change distribution of random numbers
 """
 
 
+import random
+
+
 # To be overridden
 from dsl import *
 
