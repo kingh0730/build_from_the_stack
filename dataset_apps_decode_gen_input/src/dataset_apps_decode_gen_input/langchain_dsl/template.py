@@ -51,7 +51,10 @@ def dsl_chain():
         [system_message_prompt, human_message_prompt]
     )
 
-    chain = LLMChain(llm=chat, prompt=chat_prompt)
+    chain = LLMChain(
+        llm=chat,
+        prompt=chat_prompt,
+    )
     ans = chain.run(
         question=QUESTION_2,
     )
