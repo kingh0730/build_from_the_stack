@@ -9,4 +9,8 @@ In the DSL, you can only use:
     `and`, `or`, `not` operators, arithmetic operators,
     `assert` statements to assert the validity/constraints of the input,
     and the functions defined below.
+
+NOTE that it's okay for your function to fail if you `assert` statements.
+If your function fails, we will just run it again.
+
 Everything else is NOT allowed!!!
