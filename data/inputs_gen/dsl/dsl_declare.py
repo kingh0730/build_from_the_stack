@@ -1,11 +1,6 @@
 import random
 
 
-GENERATE_INPUT = """
-Marker for the function that generates a random valid input
-"""
-
-
 def gen_int(min_inclusive: int, max_inclusive: int):
     """
     Returns a random integer between min (inclusive) and max (inclusive)
