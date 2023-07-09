@@ -30,7 +30,9 @@ def test_DSL():
 
 
 def test_dsl_template():
-    ans = dsl_template(question=QUESTION_2)
+    ans = dsl_template(
+        question=QUESTION_2,
+    )
     print(ans)
     print(ans[0].content)
     print(ans[1].content)
@@ -51,6 +53,9 @@ def not_running():
         assert type(ans) == str
 
     def test_dsl_chain():
-        ans = dsl_chain(question=QUESTION_2)
+        ans = dsl_chain(
+            question=QUESTION_2,
+            model="gpt-4",
+        )
         print(ans)
         assert type(ans) == str
