@@ -1,3 +1,5 @@
+import json
+
 # Third-party imports
 from datasets import load_from_disk
 
@@ -71,8 +73,12 @@ class APPSDecodeGenInputRun:
 
         ds = ds.map(
             lambda row: {
-                "new_inputs: gpt-4": new_inputs_all_gpt_4[row["problem_id"]],
-                "new_inputs: gpt-3.5-turbo": new_inputs_all_gpt_3[row["problem_id"]],
+                "new_inputs: gpt-4": json.dumps(
+                    new_inputs_all_gpt_4[row["problem_id"]],
+                ),
+                "new_inputs: gpt-3.5-turbo": json.dumps(
+                    new_inputs_all_gpt_3[row["problem_id"]],
+                ),
             },
         )
 
