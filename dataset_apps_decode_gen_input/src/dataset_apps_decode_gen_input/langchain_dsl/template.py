@@ -33,16 +33,15 @@ def build_dsl_template():
     return chat_prompt
 
 
-def dsl_template():
+def dsl_template(question: str):
     chat_prompt = build_dsl_template()
     msg = chat_prompt.format_messages(
-        question=QUESTION_2,
+        question=question,
     )
-
     return msg
 
 
-def dsl_chain():
+def dsl_chain(question: str):
     chat = ChatOpenAI(
         temperature=0,
         model="gpt-4",
@@ -56,7 +55,6 @@ def dsl_chain():
         prompt=chat_prompt,
     )
     ans = chain.run(
-        question=QUESTION_2,
+        question=question,
     )
-
     return ans
