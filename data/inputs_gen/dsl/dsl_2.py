@@ -34,3 +34,5 @@ def generate_input():
         res.append(a_line)
         res.append(b_line)
         res.append(c_line)
+
+    return res

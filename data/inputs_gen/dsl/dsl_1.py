@@ -21,3 +21,5 @@ def generate_input() -> list:
 
         line = to_str_then_concat_with_space([ni, mi, ki])
         res.append(line)
+
+    return res

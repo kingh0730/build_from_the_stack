@@ -41,3 +41,5 @@ def generate_input() -> list:
 
     assert sum(list_n) <= 2 * 10**5
     assert sum(list_word_len_all_test_cases) <= 4 * 10**6
+
+    return res
