@@ -3,6 +3,7 @@ from datasets import load_from_disk
 
 # Project imports
 from ._config import CACHE_DIR
+from dataset_apps_decode_gen_input import APPSDecodeGenInput
 
 
 class APPSDecodeGenInputRun:
@@ -28,4 +29,8 @@ class APPSDecodeGenInputRun:
         return self._ds
 
     def build(self):
-        raise NotImplementedError
+        ds = APPSDecodeGenInput(
+            logger=self.logger,
+        ).dataset()
+
+        return ds
