@@ -10,7 +10,7 @@ In the DSL, you can only use:
     `assert` statements to assert the validity/constraints of the input,
     and the functions defined below.
 
-NOTE that it's okay for your function to fail if you `assert` statements.
+NOTE that it's okay for your function to fail if you use `assert` statements.
 If your function fails, we will just run it again.
 
 Everything else is NOT allowed!!!
