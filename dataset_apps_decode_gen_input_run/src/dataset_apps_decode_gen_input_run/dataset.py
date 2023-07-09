@@ -9,6 +9,9 @@ from dataset_apps_decode_gen_input import APPSDecodeGenInput
 DSL_GEN_BASE_DIR = "./data/inputs_gen/dsl/gen/"
 
 
+GENERATE_INPUT_FUNC_NAME = "generate_input"
+
+
 class APPSDecodeGenInputRun:
     def __init__(self, *, logger):
         self._ds = None
@@ -37,6 +40,17 @@ class APPSDecodeGenInputRun:
         ).dataset()
 
         self.save_dsl_py(ds)
+
+        # Execute python files
+        for row in ds:
+            file_name = f"dsl_{row['problem_id']}.py"
+
+            try:
+                with open(f"{DSL_GEN_BASE_DIR}/gpt-4/{file_name}", "r") as f:
+                    exec(f.read())
+                    exec(f"{GENERATE_INPUT_FUNC_NAME}()")
+            except Exception:
+                print(f"Failed to execute {file_name}")
 
         return ds
 
