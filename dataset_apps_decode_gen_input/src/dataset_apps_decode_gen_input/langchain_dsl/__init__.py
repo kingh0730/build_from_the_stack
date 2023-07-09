@@ -17,7 +17,7 @@ DSL_PROMPT_1_INTRO_MD = _dsl_dir + "dsl_prompt_1_intro.md"
 DSL_PROMPT_2_EXAMPLES_INTRO_MD = _dsl_dir + "dsl_prompt_2_examples_intro.md"
 DSL_PROMPT_3_NOW_MD = _dsl_dir + "dsl_prompt_3_now.md"
 
-DSL_PY = _dsl_dir + "dsl.py"
+DSL_PY = _dsl_dir + "dsl_declare.py"
 
 QUESTION_0_MD = _dsl_dir + "question_0.md"
 DSL_0_PY = _dsl_dir + "dsl_0.py"
