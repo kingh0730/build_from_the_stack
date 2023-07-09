@@ -12,6 +12,7 @@ from dataset_apps_decode_gen_input_run.dsl_impl_copy_to_run import *
 DSL_GEN_BASE_DIR = "./data/inputs_gen/dsl/gen/"
 
 
+# ! Should not override this name
 GENERATE_INPUT_FUNC_NAME = "generate_input"
 
 
@@ -53,7 +54,7 @@ class APPSDecodeGenInputRun:
 
             try:
                 exec(generate_input_gpt_4)
-                exec(f"new_input = {GENERATE_INPUT_FUNC_NAME}()")
+                exec(f"FROM_EXEC_new_input = {GENERATE_INPUT_FUNC_NAME}()")
             except Exception:
                 print(f"Failed to execute {file_name}")
 
