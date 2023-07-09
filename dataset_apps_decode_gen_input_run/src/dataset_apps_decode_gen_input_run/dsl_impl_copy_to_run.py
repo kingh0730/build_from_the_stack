@@ -42,4 +42,9 @@ def gen_neg_int(min_inclusive: int) -> int:
     """
     Returns a random integer between min (inclusive) and -1
     """
-    return gen_int(min_inclusive, -1)
+    max_inclusive = -1
+
+    return random.randint(
+        max(min_inclusive, max_inclusive - 4),
+        max_inclusive,
+    )
