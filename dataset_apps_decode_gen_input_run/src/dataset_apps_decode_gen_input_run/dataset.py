@@ -46,8 +46,8 @@ class APPSDecodeGenInputRun:
         self.save_dsl_py(ds)
 
         # Execute python files
-        new_inputs_all_gpt_4 = []
-        new_inputs_all_gpt_3 = []
+        new_inputs_all_gpt_4 = {}
+        new_inputs_all_gpt_3 = {}
         for row in ds:
             file_name = f"dsl_{row['problem_id']}.py"
 
@@ -58,13 +58,20 @@ class APPSDecodeGenInputRun:
                 self.generate_one_input_try_hard(generate_input_gpt_4, file_name)
                 for _ in range(10)
             ]
-            new_inputs_all_gpt_4.append(new_inputs)
+            new_inputs_all_gpt_4[row["problem_id"]] = new_inputs
 
             new_inputs = [
                 self.generate_one_input_try_hard(generate_input_gpt_3, file_name)
                 for _ in range(10)
             ]
-            new_inputs_all_gpt_3.append(new_inputs)
+            new_inputs_all_gpt_3[row["problem_id"]] = new_inputs
+
+        ds = ds.map(
+            lambda row: {
+                "new_inputs: gpt-4": new_inputs_all_gpt_4[row["problem_id"]],
+                "new_inputs: gpt-3.5-turbo": new_inputs_all_gpt_3[row["problem_id"]],
+            },
+        )
 
         return ds
 
