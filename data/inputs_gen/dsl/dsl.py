@@ -10,17 +10,9 @@ Marker for the function that generates a random valid input
 """
 
 
-def record(arg: int | float | str):
-    """
-    Records the argument
-    FIXME explain more
-    """
-    print(arg)
-
-
 def gen_int(min_inclusive: int, max_inclusive: int):
     """
-    Returns a random integer between min and max
+    Returns a random integer between min (inclusive) and max (inclusive)
     """
     return random.randint(
         min_inclusive,
@@ -30,7 +22,7 @@ def gen_int(min_inclusive: int, max_inclusive: int):
 
 def gen_float(min_inclusive: float, max_inclusive: float):
     """
-    Returns a random float between min and max
+    Returns a random float between min (inclusive) and max (inclusive)
     """
     return random.uniform(
         min_inclusive,
@@ -40,14 +32,14 @@ def gen_float(min_inclusive: float, max_inclusive: float):
 
 def gen_pos_int(max_inclusive: int):
     """
-    Returns a random integer between 1 and max
+    Returns a random integer between 1 and max (inclusive)
     """
     return gen_int(1, max_inclusive)
 
 
 def gen_neg_int(min_inclusive: int):
     """
-    Returns a random integer between min and -1
+    Returns a random integer between min (inclusive) and -1
     """
     return gen_int(min_inclusive, -1)
 
