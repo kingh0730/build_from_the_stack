@@ -68,6 +68,27 @@ class APPSDecodeGenInputRun:
 
         return ds
 
+    def generate_one_input_try_hard(self, generate_input: str, file_name: str):
+        for _ in range(100):
+            once_or_none = self.generate_input_once_or_none(
+                generate_input,
+                file_name,
+            )
+
+            if once_or_none is not None:
+                return once_or_none
+
+    def generate_input_once_or_none(self, generate_input: str, file_name: str):
+        try:
+            loc = {}
+            exec(generate_input, None, loc)
+
+            new_input = loc[GENERATE_INPUT_FUNC_NAME]()
+            return new_input
+
+        except Exception as e:
+            print(f"Failed to execute {file_name} due to {e}")
+
     def save_dsl_py(self, apps_decode_gen_input):
         for row in apps_decode_gen_input:
             generate_input_gpt_4 = self.process_dsl_py(row["solution: gpt-4"])
