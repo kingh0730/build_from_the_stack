@@ -46,25 +46,25 @@ class APPSDecodeGenInputRun:
         self.save_dsl_py(ds)
 
         # Execute python files
-        new_inputs_all = []
+        new_inputs_all_gpt_4 = []
+        new_inputs_all_gpt_3 = []
         for row in ds:
-            new_inputs = []
-            new_inputs_all.append(new_inputs)
-
             file_name = f"dsl_{row['problem_id']}.py"
 
             generate_input_gpt_4 = self.process_dsl_py(row["solution: gpt-4"])
             generate_input_gpt_3 = self.process_dsl_py(row["solution: gpt-3.5-turbo"])
 
-            try:
-                loc = {}
-                exec(generate_input_gpt_4, None, loc)
+            new_inputs = [
+                self.generate_one_input_try_hard(generate_input_gpt_4, file_name)
+                for _ in range(10)
+            ]
+            new_inputs_all_gpt_4.append(new_inputs)
 
-                new_input = loc[GENERATE_INPUT_FUNC_NAME]()
-                new_inputs.append(new_input)
-
-            except Exception as e:
-                print(f"Failed to execute {file_name} due to {e}")
+            new_inputs = [
+                self.generate_one_input_try_hard(generate_input_gpt_3, file_name)
+                for _ in range(10)
+            ]
+            new_inputs_all_gpt_3.append(new_inputs)
 
         return ds
 
