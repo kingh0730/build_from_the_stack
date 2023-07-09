@@ -5,6 +5,9 @@ from datasets import load_from_disk
 from ._config import CACHE_DIR
 from dataset_apps_decode_gen_input import APPSDecodeGenInput
 
+# TODO Perhaps not wildcard
+from dataset_apps_decode_gen_input_run.dsl_impl_copy_to_run import *
+
 
 DSL_GEN_BASE_DIR = "./data/inputs_gen/dsl/gen/"
 
@@ -45,10 +48,12 @@ class APPSDecodeGenInputRun:
         for row in ds:
             file_name = f"dsl_{row['problem_id']}.py"
 
+            generate_input_gpt_4 = self.process_dsl_py(row["solution: gpt-4"])
+            generate_input_gpt_3 = self.process_dsl_py(row["solution: gpt-3.5-turbo"])
+
             try:
-                with open(f"{DSL_GEN_BASE_DIR}/gpt-4/{file_name}", "r") as f:
-                    exec(f.read())
-                    exec(f"{GENERATE_INPUT_FUNC_NAME}()")
+                exec(generate_input_gpt_4)
+                exec(f"new_input = {GENERATE_INPUT_FUNC_NAME}()")
             except Exception:
                 print(f"Failed to execute {file_name}")
 
