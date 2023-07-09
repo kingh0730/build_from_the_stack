@@ -1,7 +1,7 @@
 from dataset_apps_decode_gen_input_run.dsl_impl_copy_to_run import *
 
 
-te_input() -> list:
+def generate_input() -> list:
     res = []
 
     t = gen_pos_int(500)
@@ -13,4 +13,4 @@ te_input() -> list:
         s = "".join([choice(["0", "1"]) for _ in range(s_len)])
         res.append(s)
 
-    return 
+    return res

@@ -1,7 +1,7 @@
 from dataset_apps_decode_gen_input_run.dsl_impl_copy_to_run import *
 
 
-te_input() -> list:
+def generate_input() -> list:
     res = []
 
     tc = gen_int(1, 20)
@@ -20,4 +20,4 @@ te_input() -> list:
             p = gen_int(1, 10)
             res.append([a, p])
 
-    return 
+    return res

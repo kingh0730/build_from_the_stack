@@ -1,7 +1,7 @@
 from dataset_apps_decode_gen_input_run.dsl_impl_copy_to_run import *
 
 
-te_input() -> list:
+def generate_input() -> list:
     res = []
 
     t = gen_pos_int(2 * 10**4)
@@ -15,4 +15,4 @@ te_input() -> list:
         random.shuffle(p)
         res.append(p)
 
-    return 
+    return res

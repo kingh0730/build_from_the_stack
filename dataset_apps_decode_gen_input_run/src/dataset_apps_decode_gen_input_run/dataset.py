@@ -51,7 +51,12 @@ class APPSDecodeGenInputRun:
         return ds
 
     def process_dsl_py(self, dsl_py: str):
-        stripped = dsl_py[10:-3]
+        if dsl_py.startswith("```python"):
+            stripped = dsl_py[10:-3]
+        elif dsl_py.startswith("```"):
+            stripped = dsl_py[4:-3]
+        else:
+            stripped = dsl_py
 
         append = """\
 from dataset_apps_decode_gen_input_run.dsl_impl_copy_to_run import *

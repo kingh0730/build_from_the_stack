@@ -1,7 +1,7 @@
 from dataset_apps_decode_gen_input_run.dsl_impl_copy_to_run import *
 
 
-te_input() -> list:
+def generate_input() -> list:
     res = []
 
     t = gen_pos_int(5000)
@@ -16,4 +16,4 @@ te_input() -> list:
             p = gen_pos_int(10**9)
             res.append([m, p])
 
-    return 
+    return res
