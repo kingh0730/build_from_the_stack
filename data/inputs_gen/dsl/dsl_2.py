@@ -1,10 +1,8 @@
-from dsl import (
-    GENERATE_INPUT,
+from dsl_impl import (
     gen_pos_int,
-    record,
     gen_int,
     to_str_then_concat_with_space,
-    requires_for_each,
+    GENERATE_INPUT,
 )
 
 
@@ -12,12 +10,14 @@ GENERATE_INPUT
 
 
 def generate_input():
+    res = []
+
     t = gen_pos_int(100)
-    record(t)
+    res.append(t)
 
     for _ in range(t):
         n = gen_int(3, 100)
-        record(n)
+        res.append(n)
 
         with requires_for_each(
             "i",
@@ -31,6 +31,6 @@ def generate_input():
         b_line = to_str_then_concat_with_space(b)
         c_line = to_str_then_concat_with_space(c)
 
-        record(a_line)
-        record(b_line)
-        record(c_line)
+        res.append(a_line)
+        res.append(b_line)
+        res.append(c_line)
