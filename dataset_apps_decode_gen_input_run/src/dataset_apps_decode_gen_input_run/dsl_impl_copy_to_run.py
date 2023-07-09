@@ -8,12 +8,7 @@ import random
 
 
 # To be overridden
-from dsl_declare import *
-
-
-GENERATE_INPUT = """
-Marker for the function that generates a random valid input
-"""
+from .dsl_declare_copy_to_run import *
 
 
 def gen_int(min_inclusive: int, max_inclusive: int):
