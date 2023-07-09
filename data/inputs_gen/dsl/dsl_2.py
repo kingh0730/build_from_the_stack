@@ -9,7 +9,7 @@ from dsl_impl import (
 GENERATE_INPUT
 
 
-def generate_input():
+def generate_input() -> list:
     res = []
 
     t = gen_pos_int(100)
@@ -19,20 +19,16 @@ def generate_input():
         n = gen_int(3, 100)
         res.append(n)
 
-        with requires_for_each(
-            "i",
-            lambda a, b, c: a != b and b != c and c != a,
-        ):
-            a = [gen_pos_int(100) for i in range(n)]
-            b = [gen_pos_int(100) for i in range(n)]
-            c = [gen_pos_int(100) for i in range(n)]
+        a = [gen_pos_int(100) for _ in range(n)]
+        res.append(a)
 
-        a_line = to_str_then_concat_with_space(a)
-        b_line = to_str_then_concat_with_space(b)
-        c_line = to_str_then_concat_with_space(c)
+        b = [gen_pos_int(100) for _ in range(n)]
+        res.append(b)
 
-        res.append(a_line)
-        res.append(b_line)
-        res.append(c_line)
+        c = [gen_pos_int(100) for _ in range(n)]
+        res.append(c)
+
+        for i in range(n):
+            assert a[i] != b[i] and a[i] != c[i] and b[i] != c[i]
 
     return res
