@@ -6,8 +6,9 @@ from ._config import CACHE_DIR
 
 
 class APPSDecodeGenInputRun:
-    def __init__(self):
+    def __init__(self, *, logger):
         self._ds = None
+        self.logger = logger
 
     def loads(self):
         try:
