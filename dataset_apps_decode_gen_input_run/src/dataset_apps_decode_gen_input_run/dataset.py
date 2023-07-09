@@ -53,8 +53,10 @@ class APPSDecodeGenInputRun:
             generate_input_gpt_3 = self.process_dsl_py(row["solution: gpt-3.5-turbo"])
 
             try:
-                exec(generate_input_gpt_4)
-                exec(f"FROM_EXEC_new_input = {GENERATE_INPUT_FUNC_NAME}()")
+                loc = {}
+                exec(generate_input_gpt_4, __locals=loc)
+                new_input = loc[GENERATE_INPUT_FUNC_NAME]()
+                print(new_input)
             except Exception:
                 print(f"Failed to execute {file_name}")
 
