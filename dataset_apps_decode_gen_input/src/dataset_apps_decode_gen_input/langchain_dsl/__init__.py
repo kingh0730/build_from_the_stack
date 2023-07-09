@@ -6,6 +6,12 @@ _env = dotenv_values()
 OPENAI_API_KEY = _env["OPENAI_API_KEY"]
 
 
+# From dsl_impl.py
+GENERATE_INPUT = """
+Marker for the function that generates a random valid input
+"""
+
+
 _dsl_dir = (
     path.dirname(
         path.dirname(path.dirname(path.dirname(path.dirname(path.abspath(__file__)))))
@@ -45,19 +51,22 @@ with open(QUESTION_0_MD, "r", encoding="utf-8") as f:
     QUESTION_0 = f.read()
 
 with open(DSL_0_PY, "r", encoding="utf-8") as f:
-    DSL_0 = f.read()
+    content = f.read()
+    DSL_0 = content.split(GENERATE_INPUT)[1]
 
 with open(QUESTION_1_MD, "r", encoding="utf-8") as f:
     QUESTION_1 = f.read()
 
 with open(DSL_1_PY, "r", encoding="utf-8") as f:
-    DSL_1 = f.read()
+    content = f.read()
+    DSL_1 = content.split(GENERATE_INPUT)[1]
 
 with open(QUESTION_2_MD, "r", encoding="utf-8") as f:
     QUESTION_2 = f.read()
 
 with open(DSL_2_PY, "r", encoding="utf-8") as f:
-    DSL_2 = f.read()
+    content = f.read()
+    DSL_2 = content.split(GENERATE_INPUT)[1]
 
 
 SYSTEM_TEMPLATE = f"""
