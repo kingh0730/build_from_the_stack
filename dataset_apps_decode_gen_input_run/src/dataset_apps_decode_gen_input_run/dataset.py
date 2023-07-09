@@ -46,7 +46,11 @@ class APPSDecodeGenInputRun:
         self.save_dsl_py(ds)
 
         # Execute python files
+        new_inputs_all = []
         for row in ds:
+            new_inputs = []
+            new_inputs_all.append(new_inputs)
+
             file_name = f"dsl_{row['problem_id']}.py"
 
             generate_input_gpt_4 = self.process_dsl_py(row["solution: gpt-4"])
@@ -55,7 +59,10 @@ class APPSDecodeGenInputRun:
             try:
                 loc = {}
                 exec(generate_input_gpt_4, None, loc)
+
                 new_input = loc[GENERATE_INPUT_FUNC_NAME]()
+                new_inputs.append(new_input)
+
             except Exception as e:
                 print(f"Failed to execute {file_name} due to {e}")
 
