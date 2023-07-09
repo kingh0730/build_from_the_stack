@@ -20,8 +20,8 @@ def generate_input() -> list:
     list_word_len_all_test_cases = []
     for _ in range(t):
         n = gen_pos_int(2 * 10**5)
-        list_n.append(n)
         res.append(n)
+        list_n.append(n)
 
         list_word_len_this_test_case = []
         list_word = []
