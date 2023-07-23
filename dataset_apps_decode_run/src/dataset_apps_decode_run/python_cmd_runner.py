@@ -1,7 +1,7 @@
 import subprocess
 
 
-def python_cmd(cmd: str, input_text: str) -> str:
+def python_cmd(cmd: str, input_text: str) -> str | None:
     # Define the command to run your Python file
     command = ["python", "-c", cmd]
 
@@ -23,7 +23,8 @@ def python_cmd(cmd: str, input_text: str) -> str:
 
     # Check for any errors
     if process.returncode != 0:
-        return f"Error executing Python command: {error}"
+        print(f"Error executing Python command: {error}")
+        return None
 
     # Print the output
     return output
