@@ -182,6 +182,7 @@ class APPSDecodeGenInputRun:
     ) -> list | None:
         try:
             loc = {}
+            # TODO import statements do not work inside exec
             exec(generate_input, None, loc)
 
             new_input = loc[GENERATE_INPUT_FUNC_NAME]()
