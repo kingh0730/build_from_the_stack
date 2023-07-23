@@ -109,6 +109,7 @@ dependencies = [ # Optional
 
   # Workspace dependencies
   "dataset_apps_decode_gen_input==0.0.1",
+  "dataset_apps_decode_run==0.0.1",
 ]
 
 # List additional groups of dependencies here (e.g. development
