@@ -99,6 +99,8 @@ class APPSDecodeGenInputRun:
                             solution,
                             input,
                         )
+                        if input is not None
+                        else None
                         for solution in x["solutions"]
                     ]
                     for input in x["new_inputs_codeforces: gpt-4"]
@@ -115,6 +117,8 @@ class APPSDecodeGenInputRun:
                             solution,
                             input,
                         )
+                        if input is not None
+                        else None
                         for solution in x["solutions"]
                     ]
                     for input in x["new_inputs_codeforces: gpt-3.5-turbo"]
