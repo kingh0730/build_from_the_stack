@@ -91,6 +91,21 @@ class APPSDecodeGenInputRun:
             },
         )
 
+        ds = ds.map(
+            lambda x: {
+                "new_answers: gpt-4": [
+                    [
+                        python_cmd(
+                            solution,
+                            input,
+                        )
+                        for solution in x["solutions"]
+                    ]
+                    for input in x["new_inputs_codeforces: gpt-4"]
+                ],
+            },
+        )
+
         return ds
 
     def input_to_codeforces_format(self, input: list | None) -> str | None:
