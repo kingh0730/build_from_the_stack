@@ -137,6 +137,16 @@ class APPSDecodeGenInputRun:
             num_proc=NUM_PROC,
         )
 
+        ds = ds.map(
+            lambda x: {
+                "new_answers_agree: gpt-3.5-turbo": [
+                    len(set(answers)) == 1 and None not in answers
+                    for answers in x["new_answers: gpt-3.5-turbo"]
+                ],
+            },
+            num_proc=NUM_PROC,
+        )
+
         return ds
 
     def input_to_codeforces_format(self, input: list | None) -> str | None:
