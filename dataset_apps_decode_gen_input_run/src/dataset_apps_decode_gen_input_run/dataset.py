@@ -4,7 +4,7 @@ import json
 from datasets import load_from_disk
 
 # Project imports
-from ._config import CACHE_DIR
+from ._config import CACHE_DIR, NUM_PROC
 from dataset_apps_decode_gen_input import APPSDecodeGenInput
 from dataset_apps_decode_run.python_cmd_runner import python_cmd
 
@@ -104,6 +104,7 @@ class APPSDecodeGenInputRun:
                     for input in x["new_inputs_codeforces: gpt-4"]
                 ],
             },
+            num_proc=NUM_PROC,
         )
 
         return ds
