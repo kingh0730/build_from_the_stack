@@ -103,6 +103,16 @@ class APPSDecodeGenInputRun:
                     ]
                     for input in x["new_inputs_codeforces: gpt-4"]
                 ],
+                "new_answers: gpt-3.5-turbo": [
+                    [
+                        python_cmd(
+                            solution,
+                            input,
+                        )
+                        for solution in x["solutions"]
+                    ]
+                    for input in x["new_inputs_codeforces: gpt-3.5-turbo"]
+                ],
             },
             num_proc=NUM_PROC,
         )
