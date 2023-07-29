@@ -50,7 +50,7 @@ class TheStackDedupAppendImportsStats:
             num_proc=NUM_PROC,
         )
 
-        ds = matches.map(
+        return matches.map(
             lambda d: {
                 "__has_stdlib_imports__": has_stdlib_imports(
                     d["__imports_stats__"]["ast.Import"],
@@ -67,5 +67,3 @@ class TheStackDedupAppendImportsStats:
             },
             num_proc=NUM_PROC,
         )
-
-        return ds

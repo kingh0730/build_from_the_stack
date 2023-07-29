@@ -3,11 +3,8 @@ from dataset_apps_decode_gen_input_run.dsl_impl_copy_to_run import *
 
 
 def generate_input() -> list:
-    res = []
-
     tc = gen_pos_int(20)
-    res.append(tc)
-
+    res = [tc]
     for _ in range(tc):
         n = gen_pos_int(100)
         res.append(n)

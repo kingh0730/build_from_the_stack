@@ -10,11 +10,8 @@ GENERATE_INPUT
 
 
 def generate_input() -> list:
-    res = []
-
     t = gen_pos_int(100)
-    res.append(t)
-
+    res = [t]
     for _ in range(t):
         n = gen_int(3, 100)
         res.append(n)

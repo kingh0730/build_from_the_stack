@@ -27,9 +27,7 @@ def function_only_raises_not_implemented_error(func_def: ast.FunctionDef) -> boo
         return False
     if not isinstance(func_def.body[0].exc, ast.Name):
         return False
-    if func_def.body[0].exc.id != "NotImplementedError":
-        return False
-    return True
+    return func_def.body[0].exc.id == "NotImplementedError"
 
 
 class AnalyzeContent:
@@ -39,11 +37,7 @@ class AnalyzeContent:
 
     @staticmethod
     def _extract_functions(tree: ast.AST) -> list[ast.FunctionDef]:
-        func_defs = []
-        for node in ast.walk(tree):
-            if isinstance(node, ast.FunctionDef):
-                func_defs.append(node)
-        return func_defs
+        return [node for node in ast.walk(tree) if isinstance(node, ast.FunctionDef)]
 
     @staticmethod
     def filter_functions(func_defs: list[ast.FunctionDef]) -> list[ast.FunctionDef]:
@@ -52,13 +46,13 @@ class AnalyzeContent:
         Remove functions having decorators
         Remove very long and very short functions
         """
-        final_func_defs = []
-        for func_def in func_defs:
-            if any(predicate(func_def) for predicate in FUNCTION_REMOVAL_PREDICATES):
-                continue
-            final_func_defs.append(func_def)
-
-        return final_func_defs
+        return [
+            func_def
+            for func_def in func_defs
+            if not any(
+                predicate(func_def) for predicate in FUNCTION_REMOVAL_PREDICATES
+            )
+        ]
 
     @staticmethod
     def _analyze(tree: ast.AST) -> list[str]:

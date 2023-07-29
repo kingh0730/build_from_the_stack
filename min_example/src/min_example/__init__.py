@@ -12,6 +12,4 @@ def main():
     print("Call your main application code here")
 
     apps = MinExample()
-    ds = apps.dataset()
-
-    return ds
+    return apps.dataset()

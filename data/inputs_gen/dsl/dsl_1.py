@@ -8,11 +8,8 @@ GENERATE_INPUT
 
 
 def generate_input() -> list:
-    res = []
-
     q = gen_pos_int(10**4)
-    res.append(q)
-
+    res = [q]
     for _ in range(q):
         ni = gen_pos_int(10**18)
         mi = gen_pos_int(10**18)

@@ -62,11 +62,7 @@ def has_stdlib_imports(matches_abs, matches_rel) -> bool:
         if m in stdlib_module_names:
             return True
 
-    for m in matches_rel:
-        if m in stdlib_module_names:
-            return True
-
-    return False
+    return any(m in stdlib_module_names for m in matches_rel)
 
 
 def has_top_pypi_imports(matches_abs, matches_rel) -> bool:
@@ -74,11 +70,7 @@ def has_top_pypi_imports(matches_abs, matches_rel) -> bool:
         if m in top_pypi_packages:
             return True
 
-    for m in matches_rel:
-        if m in top_pypi_packages:
-            return True
-
-    return False
+    return any(m in top_pypi_packages for m in matches_rel)
 
 
 def has_other_imports(matches_abs, matches_rel) -> bool:
@@ -86,8 +78,7 @@ def has_other_imports(matches_abs, matches_rel) -> bool:
         if m not in stdlib_module_names and m not in top_pypi_packages:
             return True
 
-    for m in matches_rel:
-        if m not in stdlib_module_names and m not in top_pypi_packages:
-            return True
-
-    return False
+    return any(
+        m not in stdlib_module_names and m not in top_pypi_packages
+        for m in matches_rel
+    )

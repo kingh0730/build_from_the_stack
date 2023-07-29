@@ -18,6 +18,4 @@ def main():
         logger=logger,
     )
 
-    ds = apps.dataset()
-
-    return ds
+    return apps.dataset()

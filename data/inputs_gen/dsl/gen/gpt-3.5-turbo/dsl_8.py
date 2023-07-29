@@ -29,10 +29,7 @@ def max_score(t: int, test_cases: list) -> list:
         # Calculate the initial score and wins
         for j in range(n):
             if s[j] == "W":
-                if j > 0 and s[j - 1] == "W":
-                    score += 2
-                else:
-                    score += 1
+                score += 2 if j > 0 and s[j - 1] == "W" else 1
                 wins += 1
 
         # Cheat to maximize the score
@@ -46,10 +43,9 @@ def max_score(t: int, test_cases: list) -> list:
                     if k > 0:
                         score += 2
                         k -= 1
-                else:
-                    if k > 0:
-                        score += 1
-                        k -= 1
+                elif k > 0:
+                    score += 1
+                    k -= 1
 
         res.append(score)
 

@@ -19,14 +19,13 @@ def i_love_programming():
         temperature=0,
         openai_api_key=OPENAI_API_KEY,
     )
-    ans = chat.predict_messages(
+    return chat.predict_messages(
         [
             HumanMessage(
                 content="Translate this sentence from English to French. I love programming."
             )
         ]
     )
-    return ans
 
 
 def i_love_programming_template():
@@ -39,11 +38,11 @@ def i_love_programming_template():
         [system_message_prompt, human_message_prompt]
     )
 
-    msg = chat_prompt.format_messages(
-        input_language="English", output_language="French", text="I love programming."
+    return chat_prompt.format_messages(
+        input_language="English",
+        output_language="French",
+        text="I love programming.",
     )
-
-    return msg
 
 
 def i_love_programming_chain():
@@ -61,8 +60,8 @@ def i_love_programming_chain():
     )
 
     chain = LLMChain(llm=chat, prompt=chat_prompt)
-    ans = chain.run(
-        input_language="English", output_language="French", text="I love programming."
+    return chain.run(
+        input_language="English",
+        output_language="French",
+        text="I love programming.",
     )
-
-    return ans
