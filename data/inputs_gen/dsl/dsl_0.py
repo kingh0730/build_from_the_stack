@@ -10,11 +10,8 @@ GENERATE_INPUT
 
 
 def generate_input() -> list:
-    res = []
-
     t = gen_pos_int(10**4)
-    res.append(t)
-
+    res = [t]
     list_n = []
     list_word_len_all_test_cases = []
     for _ in range(t):

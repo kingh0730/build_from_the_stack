@@ -185,9 +185,7 @@ class APPSDecodeGenInputRun:
             # TODO import statements do not work inside exec
             exec(generate_input, None, loc)
 
-            new_input = loc[GENERATE_INPUT_FUNC_NAME]()
-            return new_input
-
+            return loc[GENERATE_INPUT_FUNC_NAME]()
         except Exception as e:
             print(f"Failed to execute {file_name} due to {e}")
 

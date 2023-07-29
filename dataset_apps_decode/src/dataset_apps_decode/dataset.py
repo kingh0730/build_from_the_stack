@@ -75,10 +75,7 @@ class APPSDecode:
         ].str[1]
         df["platform"] = platforms0
 
-        # To huggingface dataset
-        ds = Dataset.from_pandas(df)
-
-        return ds
+        return Dataset.from_pandas(df)
 
     def _decode_input_output(self, input_output):
         default_input_output = {

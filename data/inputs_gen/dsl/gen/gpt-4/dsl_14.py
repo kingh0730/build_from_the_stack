@@ -5,11 +5,8 @@ from dataset_apps_decode_gen_input_run.dsl_impl_copy_to_run import *
 
 
 def generate_input() -> list:
-    res = []
-
     t = gen_pos_int(10**4)
-    res.append(t)
-
+    res = [t]
     for _ in range(t):
         a1 = gen_pos_int(100)
         b1 = gen_pos_int(100)
@@ -29,10 +26,12 @@ def generate_input() -> list:
             elif b1 == b2:
                 assert a1 + a2 == b1
         else:
-            assert not (a1 == a2 and b1 + b2 == a1) and \
-                   not (a1 == b2 and b1 + a2 == a1) and \
-                   not (b1 == a2 and a1 + b2 == b1) and \
-                   not (b1 == b2 and a1 + a2 == b1)
+            assert (
+                (a1 != a2 or b1 + b2 != a1)
+                and (a1 != b2 or b1 + a2 != a1)
+                and (b1 != a2 or a1 + b2 != b1)
+                and (b1 != b2 or a1 + a2 != b1)
+            )
 
     return res
 

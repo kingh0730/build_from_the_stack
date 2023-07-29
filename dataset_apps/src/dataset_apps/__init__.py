@@ -21,8 +21,6 @@ def main():
 
 
 def some_stats(ds: Dataset):
-    all_dfs = []
-
     # for split in ["train", "test"]:
     split = "train"
 
@@ -40,7 +38,7 @@ def some_stats(ds: Dataset):
         "num_tests",
         "mean_answer_lines",
         "std_answer_lines",
-    ][0:]
+    ][:]
 
     df = ds.to_pandas()
 
@@ -71,14 +69,13 @@ def some_stats(ds: Dataset):
     ].str[1]
     df["platform"] = platforms0
 
-    all_dfs.append(df)
-
+    all_dfs = [df]
     print("#" * 30)
     print(f"Printing stats for {split}")
 
     agg = df[properties].agg(["mean", "std", "median", "min", "max"])
     print("-" * 30)
-    print(f"Entire Table")
+    print("Entire Table")
     print(f"Size {len(df)=}")
     print(agg)
 
@@ -96,5 +93,5 @@ def some_stats(ds: Dataset):
     )
     agg["size"] = df.groupby(["difficulty", "platform"]).size()
     print("-" * 30)
-    print(f"Grouped by difficulty and platform")
+    print("Grouped by difficulty and platform")
     print(agg)

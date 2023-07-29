@@ -26,19 +26,16 @@ def build_dsl_template():
     system_message_prompt = SystemMessage(content=SYSTEM_TEMPLATE)
     human_message_prompt = HumanMessagePromptTemplate.from_template(HUMAN_TEMPLATE)
 
-    chat_prompt = ChatPromptTemplate.from_messages(
+    return ChatPromptTemplate.from_messages(
         [system_message_prompt, human_message_prompt]
     )
-
-    return chat_prompt
 
 
 def dsl_template(question: str):
     chat_prompt = build_dsl_template()
-    msg = chat_prompt.format_messages(
+    return chat_prompt.format_messages(
         question=question,
     )
-    return msg
 
 
 def dsl_chain(question: str, *, model: str):
@@ -53,7 +50,6 @@ def dsl_chain(question: str, *, model: str):
         llm=chat,
         prompt=chat_prompt,
     )
-    ans = chain.run(
+    return chain.run(
         question=question,
     )
-    return ans
