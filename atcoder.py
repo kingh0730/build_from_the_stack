@@ -1,5 +1,6 @@
 from time import sleep
 from selenium.webdriver.common.by import By
+from selenium.common.exceptions import NoSuchElementException
 from selenium import webdriver
 
 
@@ -33,10 +34,14 @@ for element in elements:
     # Delete the div element with class "ReactModalPortal"
     # The div element with class "ReactModalPortal" is the modal that appears
     # after clicking the download button
-    _modal = browser.find_element(By.CLASS_NAME, "ReactModalPortal")
-    browser.execute_script(
-        "document.querySelectorAll('.ReactModalPortal').forEach(e => e.remove())",
-    )
+    try:
+        browser.find_element(By.CLASS_NAME, "ReactModalPortal")
+    except NoSuchElementException:
+        pass
+    else:
+        browser.execute_script(
+            "document.querySelectorAll('.ReactModalPortal').forEach(e => e.remove())",
+        )
 
     sleep(2)
 
