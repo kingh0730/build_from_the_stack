@@ -19,6 +19,8 @@ sleep(10)
 elements = browser.find_elements(By.CLASS_NAME, "dig-LabelGroup-content")
 
 for element in elements:
+    print(element.text)
+
     try:
         # Move the cursor to the element without clicking it
         webdriver.ActionChains(browser).move_to_element(element).perform()
@@ -27,7 +29,7 @@ for element in elements:
 
         # Find the download button and click it
         # The download button has the "data-testid" attribute set to "list-item-hover-download-button"
-        download_button = element.find_element(
+        download_button = browser.find_element(
             By.CSS_SELECTOR, '[data-testid="list-item-hover-download-button"]'
         )
         download_button.click()
