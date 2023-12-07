@@ -10,7 +10,7 @@ browser.get(
 )
 
 
-# Wait for all elements to be loaded
+# Wait for all/most elements to be loaded
 sleep(10)
 
 
