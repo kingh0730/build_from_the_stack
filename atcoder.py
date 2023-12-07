@@ -4,6 +4,11 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium import webdriver
 
 
+ONLY_DOWNLOAD_CONTESTS = [
+    "ABC100",
+]
+
+
 browser = webdriver.Chrome()
 browser.get(
     "https://www.dropbox.com/sh/nx3tnilzqz7df8a/AAAYlTq2tiEHl5hsESw6-yfLa?dl=0",
@@ -22,10 +27,37 @@ for element in elements:
     contest_id_approx = element.text
     print(f"{contest_id_approx = }")
 
+    if contest_id_approx not in ONLY_DOWNLOAD_CONTESTS:
+        continue
+
     try:
+        # Check if there exists an element with id "pagelet-0"
+        # If there exists an element with id "pagelet-0", then delete it
+        try:
+            browser.find_element(By.ID, "pagelet-0")
+        except NoSuchElementException:
+            pass
+        else:
+            browser.execute_script(
+                "document.querySelectorAll('#pagelet-0').forEach(e => e.remove())",
+            )
+            sleep(2)
+
+        # Delete the div element with class "ReactModalPortal"
+        # The div element with class "ReactModalPortal" is the modal that appears
+        # after clicking the download button
+        try:
+            browser.find_element(By.CLASS_NAME, "ReactModalPortal")
+        except NoSuchElementException:
+            pass
+        else:
+            browser.execute_script(
+                "document.querySelectorAll('.ReactModalPortal').forEach(e => e.remove())",
+            )
+            sleep(2)
+
         # Move the cursor to the element without clicking it
         webdriver.ActionChains(browser).move_to_element(element).perform()
-
         sleep(2)
 
         # Find the download button and click it
@@ -34,18 +66,6 @@ for element in elements:
             By.CSS_SELECTOR, '[data-testid="list-item-hover-download-button"]'
         )
         download_button.click()
-
-        sleep(2)
-
-        # Delete the div element with class "ReactModalPortal"
-        # The div element with class "ReactModalPortal" is the modal that appears
-        # after clicking the download button
-
-        # modal = browser.find_element(By.CLASS_NAME, "ReactModalPortal")
-        browser.execute_script(
-            "document.querySelectorAll('.ReactModalPortal').forEach(e => e.remove())",
-        )
-
         sleep(2)
 
     except Exception as e:
