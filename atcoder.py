@@ -30,28 +30,14 @@ for element in elements:
     print(f"{contest_id_approx = }")
 
     try:
-        # Check if there exists an element with id "pagelet-0"
-        # If there exists an element with id "pagelet-0", then delete it
+        # Check if there exists an iframe element (for accepting cookies)
         try:
-            browser.find_element(By.ID, "pagelet-0")
+            browser.find_element(By.TAG_NAME, "iframe")
         except NoSuchElementException:
-            print("No such element with id 'pagelet-0'")
+            print("No iframe element")
         else:
             browser.execute_script(
-                "document.querySelectorAll('#pagelet-0').forEach(e => e.remove())",
-            )
-            sleep(2)
-
-        # Delete the div element with class "ReactModalPortal"
-        # The div element with class "ReactModalPortal" is the modal that appears
-        # after clicking the download button
-        try:
-            browser.find_element(By.CLASS_NAME, "ReactModalPortal")
-        except NoSuchElementException:
-            pass
-        else:
-            browser.execute_script(
-                "document.querySelectorAll('.ReactModalPortal').forEach(e => e.remove())",
+                "document.querySelectorAll('iframe').forEach(e => e.remove())",
             )
             sleep(2)
 
@@ -66,6 +52,19 @@ for element in elements:
         )
         download_button.click()
         sleep(2)
+
+        # Delete the div element with class "ReactModalPortal"
+        # The div element with class "ReactModalPortal" is the modal that appears
+        # after clicking the download button
+        try:
+            browser.find_element(By.CLASS_NAME, "ReactModalPortal")
+        except NoSuchElementException:
+            pass
+        else:
+            browser.execute_script(
+                "document.querySelectorAll('.ReactModalPortal').forEach(e => e.remove())",
+            )
+            sleep(2)
 
     except Exception as e:
         print(e)
