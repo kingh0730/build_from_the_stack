@@ -18,30 +18,34 @@ sleep(10)
 elements = browser.find_elements(By.CLASS_NAME, "dig-LabelGroup-content")
 
 for element in elements:
-    # Move the cursor to the element without clicking it
-    webdriver.ActionChains(browser).move_to_element(element).perform()
+    try:
+        # Move the cursor to the element without clicking it
+        webdriver.ActionChains(browser).move_to_element(element).perform()
 
-    sleep(2)
+        sleep(2)
 
-    # Find the download button and click it
-    # The download button has the "data-testid" attribute set to "list-item-hover-download-button"
-    download_button = element.find_element(
-        By.CSS_SELECTOR, '[data-testid="list-item-hover-download-button"]'
-    )
-    download_button.click()
+        # Find the download button and click it
+        # The download button has the "data-testid" attribute set to "list-item-hover-download-button"
+        download_button = element.find_element(
+            By.CSS_SELECTOR, '[data-testid="list-item-hover-download-button"]'
+        )
+        download_button.click()
 
-    sleep(2)
+        sleep(2)
 
-    # Delete the div element with class "ReactModalPortal"
-    # The div element with class "ReactModalPortal" is the modal that appears
-    # after clicking the download button
+        # Delete the div element with class "ReactModalPortal"
+        # The div element with class "ReactModalPortal" is the modal that appears
+        # after clicking the download button
 
-    # modal = browser.find_element(By.CLASS_NAME, "ReactModalPortal")
-    browser.execute_script(
-        "document.querySelectorAll('.ReactModalPortal').forEach(e => e.remove())",
-    )
+        # modal = browser.find_element(By.CLASS_NAME, "ReactModalPortal")
+        browser.execute_script(
+            "document.querySelectorAll('.ReactModalPortal').forEach(e => e.remove())",
+        )
 
-    sleep(2)
+        sleep(2)
+
+    except Exception as e:
+        print(e)
 
 
 sleep(60)
