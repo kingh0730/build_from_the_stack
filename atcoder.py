@@ -16,7 +16,7 @@ browser.get(
 
 
 # Wait for all/most elements to be loaded
-sleep(10)
+sleep(15)
 
 
 # Find all elements with class "dig-LabelGroup-content"
@@ -45,8 +45,8 @@ for element in elements:
         webdriver.ActionChains(browser).move_to_element(element).perform()
         sleep(2)
 
-        # Find the download button and click it
-        # The download button has the "data-testid" attribute set to "list-item-hover-download-button"
+        # Find the download button and click it. The download button has:
+        # the "data-testid" attribute set to "list-item-hover-download-button"
         download_button = browser.find_element(
             By.CSS_SELECTOR, '[data-testid="list-item-hover-download-button"]'
         )
