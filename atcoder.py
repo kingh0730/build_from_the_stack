@@ -25,10 +25,9 @@ elements = browser.find_elements(By.CLASS_NAME, "dig-LabelGroup-content")
 
 for element in elements:
     contest_id_approx = element.text
-    print(f"{contest_id_approx = }")
-
     if contest_id_approx not in ONLY_DOWNLOAD_CONTESTS:
         continue
+    print(f"{contest_id_approx = }")
 
     try:
         # Check if there exists an element with id "pagelet-0"
@@ -36,7 +35,7 @@ for element in elements:
         try:
             browser.find_element(By.ID, "pagelet-0")
         except NoSuchElementException:
-            pass
+            print("No such element with id 'pagelet-0'")
         else:
             browser.execute_script(
                 "document.querySelectorAll('#pagelet-0').forEach(e => e.remove())",
