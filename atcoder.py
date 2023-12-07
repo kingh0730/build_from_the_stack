@@ -13,8 +13,9 @@ browser.get(
 sleep(10)
 
 
-# Find all elements with class "_sl-list-column-hover_1oha5_41"
-elements = browser.find_elements(By.CLASS_NAME, "_sl-list-column-hover_1oha5_41")
+# Find all elements with class "dig-LabelGroup-content"
+# Or we can also find all elements with class "_sl-list-column-hover_1oha5_41"
+elements = browser.find_elements(By.CLASS_NAME, "dig-LabelGroup-content")
 
 for element in elements:
     # Move the cursor to the element without clicking it
