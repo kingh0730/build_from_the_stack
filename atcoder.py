@@ -19,7 +19,8 @@ sleep(10)
 elements = browser.find_elements(By.CLASS_NAME, "dig-LabelGroup-content")
 
 for element in elements:
-    print(element.text)
+    contest_id_approx = element.text
+    print(f"{contest_id_approx = }")
 
     try:
         # Move the cursor to the element without clicking it
