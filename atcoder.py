@@ -28,7 +28,17 @@ for element in elements:
     )
     download_button.click()
 
-    sleep(3)
+    sleep(2)
+
+    # Delete the div element with class "ReactModalPortal"
+    # The div element with class "ReactModalPortal" is the modal that appears
+    # after clicking the download button
+    _modal = browser.find_element(By.CLASS_NAME, "ReactModalPortal")
+    browser.execute_script(
+        "document.querySelectorAll('.ReactModalPortal').forEach(e => e.remove())",
+    )
+
+    sleep(2)
 
 
 sleep(60)
